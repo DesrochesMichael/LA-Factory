@@ -2,44 +2,68 @@ package fr.formation.model;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.views.Views;
 
 @Table
 @Entity
 public class Modele {
 	@Id
+	@Column(name = "modele_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private int id;
 	
-	@Column(name = "id modele", nullable = false)
-	private int niveau;
+	@Column(name = "modele_niveau", nullable = false)
+	@JsonView(Views.Modele.class)
+	private Niveau niveau;
 	
-	@Column(name = "nom", length = 25, nullable = false)
+	@Column(name = "modele_nom", length = 25, nullable = false)
+	@JsonView(Views.Modele.class)
 	private String nom;
 	
-	@Column(name = "temps", nullable = false)
+	@Column(name = "modele_temps", nullable = false)
+	@JsonView(Views.Modele.class)
 	private Date temps;
 	
-	@Column(name = "quantite bois", nullable = false)
+	@Column(name = "modele_bois",length = 25, nullable = false)
+	@JsonView(Views.Modele.class)
 	private int bois;
 	
-	@Column(name = "etapes")
+	@OneToMany(mappedBy="modele")
+	@JsonView(Views.Modele.class)
 	private List<Etape> etapes;
 	
-	@Column(name = "notes", nullable = false)
-	private int note;
+	@OneToMany(mappedBy="modele")
+	@JsonView(Views.Modele.class)
+	private List<Note> notes;
 	
-	@Column(name = "actif")
+	@Column(name = "model_activ")
+	@JsonView(Views.Modele.class)
 	private Boolean activation;
 	
-	@Column(name = "categories", nullable = false)
-	private List<Categorie> categories;
+	@ManyToMany(cascade = {
+	        CascadeType.PERSIST,
+	        CascadeType.MERGE})
+	@JoinTable(name = "madele_categorie",
+	        joinColumns = @JoinColumn(name = "modele_id"),
+	        inverseJoinColumns = @JoinColumn(name = "cat_id"))
+	private Set<Categorie> categories;
 
 	public int getId() {
 		return id;
@@ -49,13 +73,7 @@ public class Modele {
 		this.id = id;
 	}
 
-	public int getNiveau() {
-		return niveau;
-	}
 
-	public void setNiveau(int niveau) {
-		this.niveau = niveau;
-	}
 
 	public String getNom() {
 		return nom;
@@ -89,12 +107,21 @@ public class Modele {
 		this.etapes = etapes;
 	}
 
-	public int getNote() {
-		return note;
+
+	public Niveau getNiveau() {
+		return niveau;
 	}
 
-	public void setNote(int note) {
-		this.note = note;
+	public void setNiveau(Niveau niveau) {
+		this.niveau = niveau;
+	}
+
+	public List<Note> getNotes() {
+		return notes;
+	}
+
+	public void setNotes(List<Note> notes) {
+		this.notes = notes;
 	}
 
 	public Boolean getActivation() {
@@ -105,13 +132,14 @@ public class Modele {
 		this.activation = activation;
 	}
 
-	public List<Categorie> getCategories() {
+	public Set<Categorie> getCategories() {
 		return categories;
 	}
 
-	public void setCategories(List<Categorie> categories) {
+	public void setCategories(Set<Categorie> categories) {
 		this.categories = categories;
 	}
+
 	
 	
 	

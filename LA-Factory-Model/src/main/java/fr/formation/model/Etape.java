@@ -5,29 +5,42 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonView;
+
+import fr.formation.views.Views;
 
 @Table
 @Entity
 public class Etape {
 
 	@Id
+	@Column(name = "etape_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@JsonView(Views.Common.class)
 	private int id;
 	
-	@Column(name = "id modele", nullable = false)
-	private int idModele;
+	@ManyToOne
+	@Column(name = "etape_modele", nullable = false)
+	@JsonView(Views.Etape.class)
+	private Modele modele;
 	
-	@Column(name = "titre", length = 25, nullable = false)
+	@Column(name = "etape_titre", length = 25, nullable = false)
+	@JsonView(Views.Etape.class)
 	private String titre;
 	
-	@Column(name = "description", nullable = false)
+	@Column(name = "etape_description", length = 500, nullable = false)
+	@JsonView(Views.Etape.class)
 	private String description;
 	
-	@Column(name = "numero", length = 25, nullable = false)
+	@Column(name = "etape_numero", length = 25, nullable = false)
+	@JsonView(Views.Etape.class)
 	private int numero;
 	
-	@Column(name = "lien", nullable = true)
+	@Column(name = "etape_lien", nullable = true)
+	@JsonView(Views.Etape.class)
 	private String lien;
 
 	public int getId() {
@@ -38,12 +51,14 @@ public class Etape {
 		this.id = id;
 	}
 
-	public int getIdModele() {
-		return idModele;
+
+
+	public Modele getModele() {
+		return modele;
 	}
 
-	public void setIdModele(int idModele) {
-		this.idModele = idModele;
+	public void setModele(Modele modele) {
+		this.modele = modele;
 	}
 
 	public String getTitre() {

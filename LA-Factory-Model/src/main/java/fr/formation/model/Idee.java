@@ -11,19 +11,20 @@ import javax.persistence.Table;
 @Table
 public class Idee {
 	@Id
+	@Column(name = "idee_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "nom", length = 25, nullable = false)
+	@Column(name = "idee_nom", length = 25, nullable = false)
 	private String nom;
 	
-	@Column(name = "prenom", length = 25, nullable = false)
+	@Column(name = "idee_prenom", length = 25, nullable = false)
 	private String prenom;
 	
-	@Column(name = "mail", nullable = false)
+	@Column(name = "idee_mail", nullable = false)
 	private String mail;
 	
-	@Column(name = "message", length = 500, nullable = false)
+	@Column(name = "idee_message", length = 500, nullable = false)
 	private String message;
 
 	public int getId() {
