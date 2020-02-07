@@ -12,7 +12,7 @@
 	<artifactId>LA-Factory-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>LA-Factory</name>
+	<name>LA-Factory-boot</name>
 	<description>Spring Boot Project for LA-Factory</description>
 
 	<properties>
