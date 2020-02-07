@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,7 +32,7 @@ public class Categorie {
 	private int id;
 	
 	@ManyToOne
-	@Column(name = "cat_parent")
+	@JoinColumn(name = "cat_parent")
 	@JsonView(Views.Common.class)
 	private Categorie parent;
 	
