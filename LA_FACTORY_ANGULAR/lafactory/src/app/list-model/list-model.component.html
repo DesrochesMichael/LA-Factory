@@ -11,11 +11,11 @@
     </thead>
     <tbody>
         <tr *ngFor="let m of models">
-            <td> m.id </td>
-            <td> m.titre </td>
-            <td> m.temps </td>
-            <td> m.niveau </td>
-            <td> <a class="btn btn-danger"> Lien vers le modèle </a> </td>
+            <td> {{m.id}} </td>
+            <td> {{m.nom}} </td>
+            <td> {{m.temps}} min </td>
+            <td> {{m.niveau}} </td>
+            <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
         </tr>
     </tbody>
 

@@ -13,8 +13,8 @@ export class ListModelComponent implements OnInit {
     new Model(1, "REAZ", 10, 10),
     new Model(2, "JOAQUIM", 10, 10),
     new Model(3, "THIBAUD", 10, 10),
-    new Model(3, "SILLAS", 10, 10),
-    new Model(3, "MICKAEL", 10, 10),
+    new Model(4, "SILLAS", 10, 10),
+    new Model(5, "MICKAEL", 10, 10),
   ];
 
 
