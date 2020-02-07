@@ -41,7 +41,7 @@ public class Categorie {
 	@JsonView(Views.Categorie.class)
 	private List<Categorie> enfants;
 	
-	@Column(name = "nom", length = 25, nullable = false)
+	@Column(name = "cat_nom", length = 25, nullable = false)
 	@JsonView(Views.Categorie.class)
 	private String nom;
 	

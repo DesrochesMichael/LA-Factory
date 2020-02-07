@@ -53,14 +53,14 @@ public class Modele {
 	@JsonView(Views.Modele.class)
 	private List<Note> notes;
 	
-	@Column(name = "model_activ")
+	@Column(name = "modele_activ")
 	@JsonView(Views.Modele.class)
 	private Boolean activation;
 	
 	@ManyToMany(cascade = {
 	        CascadeType.PERSIST,
 	        CascadeType.MERGE})
-	@JoinTable(name = "madele_categorie",
+	@JoinTable(name = "modele_categorie",
 	        joinColumns = @JoinColumn(name = "modele_id"),
 	        inverseJoinColumns = @JoinColumn(name = "cat_id"))
 	private Set<Categorie> categories;

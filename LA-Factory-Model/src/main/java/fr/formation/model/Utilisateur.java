@@ -13,15 +13,16 @@ public class Utilisateur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "uti_id")
 	private int id;
 
-	@Column(name = "nom", length = 25, nullable = false)
+	@Column(name = "uti_nom", length = 25, nullable = false)
 	private String nom;
 	
-	@Column(name = "prenom", length = 25, nullable = false)
+	@Column(name = "uti_prenom", length = 25, nullable = false)
 	private String prenom;
 	
-	@Column(name = "mail", nullable = true)
+	@Column(name = "uti_mail", nullable = true)
 	private String mail;
 
 	public int getId() {
