@@ -18,6 +18,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
+import fr.formation.model.Categorie;
+import fr.formation.model.Etape;
+import fr.formation.model.Niveau;
+import fr.formation.model.Note;
 import fr.formation.views.Views;
 
 @Table
