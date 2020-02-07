@@ -1,7 +1,5 @@
 package fr.formation.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,21 +9,20 @@ import javax.persistence.Table;
 
 @Table
 @Entity
-public class Categorie {
+public class Utilisateur {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	
-	@Column(name = "id parent")
-	private int idParent;
-	
-	@Column(name = "id enfant")
-	private List<Integer> idEnfants;
-	
+
 	@Column(name = "nom", length = 25, nullable = false)
 	private String nom;
+	
+	@Column(name = "prenom", length = 25, nullable = false)
+	private String prenom;
+	
+	@Column(name = "mail", nullable = true)
+	private String mail;
 
 	public int getId() {
 		return id;
@@ -35,28 +32,28 @@ public class Categorie {
 		this.id = id;
 	}
 
-	public int getIdParent() {
-		return idParent;
-	}
-
-	public void setIdParent(int idParent) {
-		this.idParent = idParent;
-	}
-
-	public List<Integer> getIdEnfants() {
-		return idEnfants;
-	}
-
-	public void setIdEnfants(List<Integer> idEnfants) {
-		this.idEnfants = idEnfants;
-	}
-
 	public String getNom() {
 		return nom;
 	}
 
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public String getPrenom() {
+		return prenom;
+	}
+
+	public void setPrenom(String prenom) {
+		this.prenom = prenom;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	
 	
