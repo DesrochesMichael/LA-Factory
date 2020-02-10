@@ -16,6 +16,8 @@
             <td> {{m.temps}} min </td>
             <td> {{m.niveau}} </td>
             <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
+        <tr *ngFor="let m of model">
+
         </tr>
     </tbody>
 

@@ -38,7 +38,7 @@ public class Categorie {
 	
 	@OneToMany(mappedBy="parent")
 	@Cascade(CascadeType.ALL)
-	@JsonView(Views.Categorie.class)
+	@JsonView(Views.CategorieWithEnfants.class)
 	private List<Categorie> enfants;
 	
 	@Column(name = "cat_nom", length = 25, nullable = false)
@@ -46,7 +46,7 @@ public class Categorie {
 	private String nom;
 	
 	@ManyToMany(mappedBy = "categories")
-	@JsonView(Views.Categorie.class)
+	@JsonView(Views.CategorieWithModeles.class)
 	Set<Modele> modeles;
 
 	public int getId() {

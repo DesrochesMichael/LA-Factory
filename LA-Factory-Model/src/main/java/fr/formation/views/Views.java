@@ -17,4 +17,14 @@ public class Views {
 	}
 	public static class Note extends Common {
 	}
+	public static class ModeleWithNotes extends Modele {
+	}
+	public static class ModeleWithCategories extends Modele {
+	}
+	public static class ModeleWithEtapes extends Modele {
+	}
+	public static class CategorieWithModeles extends Categorie {
+	}
+	public static class CategorieWithEnfants extends Categorie {
+	}
 }
