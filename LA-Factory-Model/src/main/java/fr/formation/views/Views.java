@@ -3,6 +3,12 @@ package fr.formation.views;
 
 public class Views {
 
+	public class ModelWithEtape {
+
+	}
+	public class EtapeWithModele {
+
+	}
 	public static class Common {
 	}
 	public static class Categorie extends Common {
