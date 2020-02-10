@@ -1,0 +1,20 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th> TITRE </th>
+            <th> TEMPS DE REALISATION </th>
+            <th> NIVEAU </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let m of srvModel.models">
+            <td> {{m.id}} </td>
+            <td> {{m.nom}} </td>
+            <td> {{m.temps}} min </td>
+            <td> {{m.niveau}} </td>
+            <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
+        </tr>
+    </tbody>
+
+</table>

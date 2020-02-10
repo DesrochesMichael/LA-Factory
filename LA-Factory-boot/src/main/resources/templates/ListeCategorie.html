@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>LA-Factory</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<meta charset="UTF-8">
+</head>
+
+<body>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Nom</th>
+				<th>Parent</th>
+			</tr>
+
+		</thead>
+		<tbody>
+
+			<tr th:each="categorie: ${categories}">
+				<td th:text="${categorie.id}"></td>
+				<td th:text="${categorie.nom}"></td>
+				<td th:text="${categorie.parent.nom}"></td>
+
+
+				<td><a class="btn btn-warning"> editer</a></td>
+				<td><a class="btn btn-danger"> supprimer</a></td>
+
+			</tr>
+		</tbody>
+	</table>
+
+
+
+	<form method="post">
+	
+		<div>
+			nom : <input type="text" name="cat_nom"
+				th:value="${categorie.nom}">
+		</div>
+		<div>
+			parent : <select name="categorie.id" class="form-control">
+						<option th:each="categorie : ${categories}"
+								th:value="${ categorie.id }" 
+								th:text="${ categorie.nom }">
+						</option>
+					</select>
+		</div>
+		
+		
+		
+		<div>
+			<button type="submit" th:if="${categorie.id==null}">ajouter</button>
+			<button type="submit" th:if="${categorie.id!=null}">modifier</button>
+		</div>
+	</form>
+
+
+
+</body>
+</html>

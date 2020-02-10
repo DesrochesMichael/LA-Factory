@@ -10,11 +10,11 @@
       <ul class="navbar-nav mr-auto" ngbDropdown>
         <button class="btn btn-outline-secondary mr-2" id="dropdownManual" ngbDropdownToggle>Modèles en bois</button>
         <div class="menuDrop" ngbDropdownMenu aria-labelledby="dropdownManual">
-          <button ngbDropdownItem>Plateaux de jeu</button>
+          <button ngbDropdownItem (click)="rechercheCategorie(plateau)">Plateaux de jeu</button>
           <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">
-          <button ngbDropdownItem>Avions</button>
+          <button ngbDropdownItem (click)="rechercheCategorie(avion)">Avions</button>
           <img src="https://www.magiedesautomates.fr/3291-large_default/maquette-en-bois-tracteur-anime.jpg">
-          <button ngbDropdownItem>Animaux</button>
+          <button ngbDropdownItem (click)="rechercheCategorie(animeau)">Animaux</button>
           <img src="https://youdoit.fr/9871-large_default/maquette-en-bois-3d-a-customiser-30-13-17-cm-camping-car.jpg">
         </div>
       </ul>
@@ -30,8 +30,8 @@
       <h1>LA Factory</h1>
       <p class="lead">Construisez vos modèles en bois en toute simplicité</p>
       <p>
-        <a href="#" class="btn btn-warning my-2" style="margin-right: 10px;">Voir les modèles</a>
-        <a href="#" class="btn btn-secondary my-2">Demandez un modèle </a>
+        <button (click)="listeModeles()" class="btn btn-warning my-2" style="margin-right: 10px;">Voir les modèles</button>
+        <button (click)="boiteAIdee()" class="btn btn-secondary my-2">Demandez un modèle </button>
       </p>
     </div>
   </section>

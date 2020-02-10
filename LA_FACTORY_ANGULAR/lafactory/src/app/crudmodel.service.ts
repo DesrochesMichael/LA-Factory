@@ -23,10 +23,18 @@ export class CRUDModelService {
 
   public async findById(id: number): Promise<Model> {
     this.model = await this.http
-        .get<Model>(this.srvAppConfig.url + "modele/find/" +  id)
+        .get<Model>(this.srvAppConfig.url + "modele/findid/" +  id)
         .toPromise();
 
     return this.model;
+  }
+
+  public async findByCategorie(categorie: String): Promise<Array<Model>> {
+    this.models = await this.http
+        .get<Array<Model>>(this.srvAppConfig.url + "modele/findcategorie/" +  categorie)
+        .toPromise();
+
+    return this.models;
   }
 
   public save(model: Model): void {

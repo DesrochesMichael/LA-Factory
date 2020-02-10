@@ -1,0 +1,61 @@
+<body class="bg-light">
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <h2>Boîte à idées</h2>
+        <p class="lead">Vous voulez un modèle particulier ? Remplissez le formulaire ci-dessous pour en faire la demande !</p>
+      </div>
+
+      <div class="row">
+       
+        <div class="col-md-12">
+          <h4 class="mb-3">Vos coordonnées</h4>
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label>Prénom</label>
+                <input type="text" class="form-control" [(ngModel)]="idee.prenom" placeholder="Michel"required>
+                <div class="invalid-feedback">
+                  Valid first name is required.
+                </div>
+              </div>
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Nom</label>
+                <input type="text" class="form-control" [(ngModel)]="idee.nom" placeholder="Dupont" value="" required>
+                <div class="invalid-feedback">
+                  Valid last name is required.
+                </div>
+              </div>
+            </div>
+
+            
+
+            <div class="mb-3">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" [(ngModel)]="idee.mail" placeholder="adresse@email.fr" required>
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+
+            <hr class="mb-4">
+            <h4 class="mb-3">Votre suggestion</h4>
+
+            <div class="mb-3">
+             
+                <textarea class="form-control" [(ngModel)]="idee.message" placeholder="Quelle est votre idée de modèle ?" rows="4"></textarea>
+            </div>
+           
+
+           
+            <hr class="mb-4">
+            <button class="btn btn-warning btn-lg btn-block" (click)="ajouterIdee(idee)">Soumettez votre suggestion</button>
+          </form>
+        </div>
+      </div>
+
+    
+    </div>
+
+</body>
