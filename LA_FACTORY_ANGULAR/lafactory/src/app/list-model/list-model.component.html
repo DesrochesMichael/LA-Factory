@@ -1,4 +1,4 @@
-<body class="bg-light">
+
 
 <div class="container">
     <div class="py-5 text-center">
@@ -7,22 +7,27 @@
 
       <div class="col-md-14">
         <!-- <iframe style="width: 100%" src="http://localhost:4200/listemodele"></iframe> -->
-        <table class="table table-striped">
+        <table class="table ">
             <thead>
                 <tr>
-                    <th> ID </th>
-                    <th> TITRE </th>
+                    <th>  </th>
+                    <th> CODE </th>
+                    <th> NOM DU MODELE </th>
                     <th> TEMPS DE REALISATION </th>
                     <th> NIVEAU </th>
+                    <th> NOTE </th>
+                    <th>  </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let m of srvModel.models">
+                    <td> <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">  </td>
                     <td> {{m.id}} </td>
                     <td> {{m.nom}} </td>
                     <td> {{m.temps}} min </td>
                     <td> {{m.niveau}} </td>
-                    <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
+                    <td> {{m.note}} </td>
+                    <td> <a class="btn btn-warning" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
                 </tr>
             </tbody>
         
@@ -32,4 +37,3 @@
     </div>
 </div>
 
-</body>
