@@ -7,7 +7,7 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AppConfigService {
-  public url: string = "http://localhost:8080/api/";
+  public url: string = "http://localhost:8081/LA-Factory-boot/api/";
   private myHeaders: HttpHeaders = new HttpHeaders();
   private options: Object = null;//Pour sécurité à la fin
 

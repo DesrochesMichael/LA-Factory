@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Model } from '../Model';
+import { CRUDModelService } from '../crudmodel.service';
 
 @Component({
   selector: 'app-model',
@@ -9,16 +10,18 @@ import { Model } from '../Model';
 })
 export class ModelComponent implements OnInit {
 
-  private model: Model = new Model(1, "REAZ", 10, 10);
+  // private model: Model = new Model(1, "REAZ", 10, 10);
 
-  constructor(private route: ActivatedRoute) {
-    this.route.params.subscribe(params => console.log(params));
+  constructor(private route: ActivatedRoute, private srvModel: CRUDModelService) {
+    this.route.params.subscribe(params => this.srvModel.findById(params.id));
    }
 
   ngOnInit() {
+    
   }
 
   public findModelById(id: string): void{
+
 
   }
 
