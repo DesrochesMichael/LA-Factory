@@ -7,23 +7,34 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListModelComponent } from './list-model/list-model.component';
 import { ModelComponent } from './model/model.component';
+import { AccueilComponent } from './accueil/accueil.component';
+import { RechercheComponent } from './recherche/recherche.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {path : 'listemodele', component: ListModelComponent},
   {path : 'modele/:id', component: ModelComponent},
-  {path: '', redirectTo : '', pathMatch: 'full'}
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'recherche', component: RechercheComponent },
+  { path: 'recherche/:terme', component: RechercheComponent } ,
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     ListModelComponent,
-    ModelComponent
+    ModelComponent,
+    AccueilComponent,
+    RechercheComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    NgbModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
