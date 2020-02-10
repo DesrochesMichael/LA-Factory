@@ -26,14 +26,14 @@ import fr.formation.views.Views;
 public class ModeleRestController {
 	
 	@Autowired
-	IDAOModele daoModele;
+	private IDAOModele daoModele;
 
 	
-	@GetMapping
+	@GetMapping("/liste")
 	@JsonView(Views.Modele.class)
 	public List<Modele> get() {
 
-		return daoModele.findAll();
+		return this.daoModele.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
