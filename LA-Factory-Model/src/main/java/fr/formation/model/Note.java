@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -37,6 +39,12 @@ public class Note {
 	@Column(name = "note_commentaire", length = 500)
 	@JsonView(Views.Note.class)
 	private String commentaire;
+	
+	@Column(name = "note_valeur", nullable = false)
+	@Min(0)
+	@Max(5)
+	@JsonView(Views.Note.class)
+	private int valeur;
 	
 	@ManyToOne
 	@JoinColumn(name = "note_modele")

@@ -27,7 +27,7 @@ public class Idee {
 	@Column(name = "idee_message", length = 500, nullable = false)
 	private String message;
 	
-	@Column(name = "idee_archive")
+	@Column(name = "idee_archive", columnDefinition = "boolean default false")
 	private Boolean archive = false;
 
 	public Boolean getArchive() {
