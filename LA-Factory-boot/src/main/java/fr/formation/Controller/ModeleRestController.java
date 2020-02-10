@@ -31,6 +31,17 @@ public class ModeleRestController {
 
 		return daoModele.findAll();
 	}
+	
+	@GetMapping("/find/{id}")
+	public Modele findById(@PathVariable int id) {
+
+		return daoModele.findById(id).get();
+	}
+	
+	@GetMapping("/categorie/{categorie}")
+	public List<Modele> findByCategorie(@PathVariable String categorie) {
+		return daoModele.findAllByCategorie(categorie);
+	}
 
 	@PutMapping("/{id}")
 	public Modele update(@RequestBody Modele modele) {
@@ -45,7 +56,7 @@ public class ModeleRestController {
 
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable int id) {
 		daoModele.deleteById(id);
 	}
