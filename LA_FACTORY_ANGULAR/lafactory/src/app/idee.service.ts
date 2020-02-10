@@ -21,5 +21,5 @@ export class IdeeService {
           .subscribe(resp => this.idees.push(resp));
     
   
-  }
+}
 }
