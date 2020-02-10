@@ -21,7 +21,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'boiteidee', component: BoiteIdeeComponent },
   { path: 'recherche', component: RechercheComponent },
-  { path: 'recherche/:terme', component: RechercheComponent } ,
+  { path: 'recherche/:nom', component: RechercheComponent } ,
   { path: 'listemodelecategorie/:categorie', component: ListModelCategorieComponent } ,
   { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 ];
