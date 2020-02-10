@@ -1,22 +1,39 @@
-<h1> Liste des modèles pour la catégorie ...</h1>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th> ID </th>
-            <th> TITRE </th>
-            <th> TEMPS DE REALISATION </th>
-            <th> NIVEAU </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let m of srvModel.models">
-            <td> {{m.id}} </td>
-            <td> {{m.nom}} </td>
-            <td> {{m.temps}} min </td>
-            <td> {{m.niveau}} </td>
-            <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
-        </tr>
-    </tbody>
 
-</table>
+<div class="container">
+    <div class="py-5 text-center">
+     
+        <h2> Liste des modèles</h2>
+
+      <div class="col-md-14">
+        <!-- <iframe style="width: 100%" src="http://localhost:4200/listemodele"></iframe> -->
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>  </th>
+                    <th> CODE </th>
+                    <th> NOM DU MODELE </th>
+                    <th> TEMPS DE REALISATION </th>
+                    <th> NIVEAU </th>
+                    <th> NOTE </th>
+                    <th>  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of srvModel.models">
+                    <td> <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">  </td>
+                    <td> {{m.id}} </td>
+                    <td> {{m.nom}} </td>
+                    <td> {{m.temps}} min </td>
+                    <td> {{m.niveau}} </td>
+                    <td> {{m.note}} </td>
+                    <td> <a class="btn btn-warning" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
+                </tr>
+            </tbody>
+        
+        </table>
+      </div>
+    
+    </div>
+</div>
+
