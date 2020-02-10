@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>LA-Factory</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<meta charset="utf-8">
+</head>
+<body>
+	<form method="post">
+
+		<div>
+			nom : <input type="text" name="nom"
+				th:value="${categorie?.nom}">
+		</div>
+		<div>
+			parent : <select name="parent" class="form-control">
+						<option th:each="cat : ${categories}"
+								th:value="${ cat.id }" 
+								th:text="${ cat.nom }">
+						</option>
+					</select>
+		</div>
+
+
+		<div>
+			<button type="submit" th:if="${categorie.id==0}">add me !</button>
+			<button type="submit" th:if="${categorie.id!=0}">mod me !</button>
+		</div>
+	</form>
+</body>
+</html>

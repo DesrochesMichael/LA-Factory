@@ -20,9 +20,9 @@ public class IdeesController {
 		return "idees";
 	}
 	
-	@GetMapping("/deleteIdee")
+	@GetMapping("/archiveIdee")
 	public String delete(@RequestParam int ideeId) {
-		daoIdees.deleteById(ideeId);
+		daoIdees.findById(ideeId).get().setArchive(true);;
 		return "redirect:idees";
 	}
 }

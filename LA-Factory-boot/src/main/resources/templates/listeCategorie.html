@@ -24,19 +24,20 @@
 			<tr th:each="categorie: ${categories}">
 				<td th:text="${categorie.id}"></td>
 				<td th:text="${categorie.nom}"></td>
-				<td th:if="${categorie.parent == null}" text="Pas de parent"></td>
+				<td th:if="${categorie.parent == null}" >Pas de parent</td>
 				<td th:if="${categorie.parent != null}" th:text="${categorie.parent.nom}"></td>
 
 
-				<td><a class="btn btn-warning"> editer</a></td>
-				<td><a class="btn btn-danger"> supprimer</a></td>
+				<td><a class="btn btn-warning" th:href="@{editCategorie(id=${categorie.id})}"> Editer</a></td>
+				<td><a class="btn btn-danger" th:href="@{supCategorie(id=${categorie.id})}"> Supprimer</a></td>
 
 			</tr>
 		</tbody>
 	</table>
 
+<a href=ajoutCategorie class="btn btn-success">Creer une categorie</a>
 
-
+<!-- 
 <form method="post">
 	
 <div th:if="${cat.id==0}">
@@ -64,7 +65,7 @@
 			<button type="submit" th:if="${cat.id!=0}" class="btn btn-danger">modifier</button>
 		</div>
 	</form>
-
+ -->
 
 
 </body>
