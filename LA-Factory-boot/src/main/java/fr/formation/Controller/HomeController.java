@@ -36,7 +36,7 @@ public class HomeController {
 			HttpSession session
 			) {
 		if( daoUtilisateur.findByMailAndPassword(user.getMail(), user.getPassword()).orElse(null) == null ) {
-			System.out.println("cet utilisateur n'existe pas");
+			System.out.println("Vous avez entre un mot de passe ou email erronne");
 			return "connexion";
 		}
 		else {
@@ -45,6 +45,11 @@ public class HomeController {
 			session.setAttribute("userId", monId);
 			return "redirect:menuPrincipal";
 		}
+	}
+	
+	@GetMapping("/menuPrincipal")
+	public String goMenu() {
+		return "menuPrincipal";
 	}
 
 }
