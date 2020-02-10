@@ -50,4 +50,19 @@ public class ModelesController {
 		model.addAttribute("modele", m);
 		return "listeModeles";
 	}
+	
+	@GetMapping("/swipe")
+	public String swipeAcivation(@RequestParam int id) {
+		Modele modele = daoModele.findById(id).get();
+		if(modele.getActivation()==null) {
+			modele.setActivation(true);
+		}
+		else {
+			boolean act=modele.getActivation();
+			act=!act;
+			modele.setActivation(act);
+		}
+		daoModele.save(modele);
+		return "redirect:/listeModeles";
+	}
 }
