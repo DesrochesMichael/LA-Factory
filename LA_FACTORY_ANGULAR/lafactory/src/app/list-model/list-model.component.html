@@ -1,22 +1,35 @@
-<h1> Liste des modèles pour la catégorie ...</h1>
+<body class="bg-light">
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th> ID </th>
-            <th> TITRE </th>
-            <th> TEMPS DE REALISATION </th>
-            <th> NIVEAU </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let m of srvModel.models">
-            <td> {{m.id}} </td>
-            <td> {{m.nom}} </td>
-            <td> {{m.temps}} min </td>
-            <td> {{m.niveau}} </td>
-            <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
-        </tr>
-    </tbody>
+<div class="container">
+    <div class="py-5 text-center">
+     
+        <h2> Liste des modèles</h2>
 
-</table>
+      <div class="col-md-14">
+        <!-- <iframe style="width: 100%" src="http://localhost:4200/listemodele"></iframe> -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th> ID </th>
+                    <th> TITRE </th>
+                    <th> TEMPS DE REALISATION </th>
+                    <th> NIVEAU </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of srvModel.models">
+                    <td> {{m.id}} </td>
+                    <td> {{m.nom}} </td>
+                    <td> {{m.temps}} min </td>
+                    <td> {{m.niveau}} </td>
+                    <td> <a class="btn btn-danger" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
+                </tr>
+            </tbody>
+        
+        </table>
+      </div>
+    
+    </div>
+</div>
+
+</body>
