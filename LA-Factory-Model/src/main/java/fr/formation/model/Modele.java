@@ -1,6 +1,6 @@
 package fr.formation.model;
 
-import java.sql.Date;
+import java.sql.Time;
 import java.util.List;
 import java.util.Set;
 
@@ -43,7 +43,7 @@ public class Modele {
 	
 	@Column(name = "modele_temps", nullable = false)
 	@JsonView(Views.Modele.class)
-	private Date temps;
+	private Time temps;
 	
 	@Column(name = "modele_bois",length = 25, nullable = false)
 	@JsonView(Views.Modele.class)
@@ -88,11 +88,11 @@ public class Modele {
 		this.nom = nom;
 	}
 
-	public Date getTemps() {
+	public Time getTemps() {
 		return temps;
 	}
 
-	public void setTemps(Date temps) {
+	public void setTemps(Time temps) {
 		this.temps = temps;
 	}
 
