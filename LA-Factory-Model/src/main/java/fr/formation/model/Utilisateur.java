@@ -24,6 +24,9 @@ public class Utilisateur {
 	
 	@Column(name = "uti_mail", nullable = true)
 	private String mail;
+	
+	@Column(name="util_role", nullable=false)
+	private String role;
 
 	public int getId() {
 		return id;
@@ -55,6 +58,14 @@ public class Utilisateur {
 
 	public void setMail(String mail) {
 		this.mail = mail;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 	
 	
