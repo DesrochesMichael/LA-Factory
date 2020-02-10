@@ -7,11 +7,18 @@ import { HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class AppConfigService {
-  public url: string = "http://172.16.44.113:8081/LA-Factory-boot/api/";
+  public url: string = "http://localhost:8080/api/";
   private myHeaders: HttpHeaders = new HttpHeaders();
   private options: Object = null;//Pour sécurité à la fin
 
   constructor(public http: HttpClient) { }
+
+  public entete(): Object{
+    let myHeaders: HttpHeaders = new HttpHeaders();
+    myHeaders = myHeaders.append('Authorization','Basic ' + btoa('admin:123'));
+    let myOptions: Object = { headers: myHeaders};
+    return myOptions;
+  }
 
   // public getQueryOption(): Object{//Pour sécurité à la fin
   //   if(this.options == null){
