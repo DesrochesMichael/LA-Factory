@@ -6,10 +6,31 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
 <meta charset="utf-8">
+<meta name="viewport" content="width=devide-width, initial-scale=1" />
 <title>Insert title here</title>
 </head>
 <body>
 	<nav th:replace="navigation.html"></nav>
 	<h2>Les idees des clients</h2>
+	<div class="container">
+	<table class="table table-striped">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">id</th>
+				<th scope="col">nom</th>
+				<th scope="col">message</th>
+				<th scope="col">mail</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="idee : ${idees}">
+				<td scope="row">[[${idee.id}]]</td>
+				<td scope="row">[[${idee.nom}]]</td>
+				<td scope="row">[[${idee.message}]]</td>
+				<td scope="row">[[${idee.mail}]]</td>
+			</tr>
+		</tbody>
+	</table>
+	</div>
 </body>
 </html>
