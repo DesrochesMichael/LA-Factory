@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<title>Liste des modèles existant</title>
+<meta name="description"
+	content="Dépensez ici votre argent en toute impunité." />
+<meta charset="UTF-8" />
+
+<base href="/LA-Factory-boot/" />
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous" />
+	
+
+<meta name="viewport" content="width=devide-width, initial-scale=1" />
+
+</head>
+
+<body>
+	<nav th:replace="navigation.html"></nav>
+	
+			<div class = "container">
+			<h1>Liste des modèles</h1>
+			<a th:href = "@{ ajouterModele}" type="button" class="btn btn-info">Ajouter un modèle</a>
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th></th>
+						<th>ID</th>
+						<th>Niveau de difficulté</th>
+						<th>Temps de construction</th>
+						<th>Quantité de bois</th>
+						<th>Etapes</th>
+						<th>Note</th>
+						<th>Modèle activé sur site<th>
+					</tr>
+				</thead>
+				
+				<tbody>
+						<tr th:each="modele : ${ modeles }">
+							<td><b>[[${ modele.nom }]]</b></td>
+							<td>[[${ modele.id }]]</td>
+							<td>[[${ modele.niveau }]]</td>
+							<td>[[${ modele.temps }]]</td>
+							<td>[[${ modele.bois}]]</td>
+							<td></td>
+							<td></td>
+							<td th:if="${modele?.activation == true }">Oui</td>
+							<td th:if="${modele?.activation == false }">Non</td>
+							<td th:if="${modele?.activation == null}">Aucune donnée</td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+		
+</body>
