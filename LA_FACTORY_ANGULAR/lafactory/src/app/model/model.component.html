@@ -1,23 +1,44 @@
-<h1>{{model.nom}}</h1>
+<header>
+    <h1>{{model.nom}}</h1>
+</header>
+
 
 <img [src]=""/>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>TEMPS</th>
-            <th>NIVEAU</th>
-            <th>BOIS</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{model.temps}}</td>
-            <td>{{model.niveau}}</td>
-            <td>model.bois</td>
-        </tr>
-    </tbody>
-</table>
+<main>
+    <section>
+
+    </section>
+    <section>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>TEMPS</th>
+                    <th>NIVEAU</th>
+                    <th>BOIS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{model.temps}}</td>
+                    <td>{{model.niveau}}</td>
+                    <td>model.bois</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>{{model.temps}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+    
+</main>
+
 
 
 
