@@ -1,0 +1,102 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">LA Factory</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto" ngbDropdown>
+        <button class="btn btn-outline-secondary mr-2" id="dropdownManual" ngbDropdownToggle>Modèles en bois</button>
+        <div class="menuDrop" ngbDropdownMenu aria-labelledby="dropdownManual">
+          <button ngbDropdownItem>Plateaux de jeu</button>
+          <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">
+          <button ngbDropdownItem>Avions</button>
+          <img src="https://www.magiedesautomates.fr/3291-large_default/maquette-en-bois-tracteur-anime.jpg">
+          <button ngbDropdownItem>Animaux</button>
+          <img src="https://youdoit.fr/9871-large_default/maquette-en-bois-3d-a-customiser-30-13-17-cm-camping-car.jpg">
+        </div>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" [(ngModel)]="terme" [ngModelOptions]="{standalone: true}" />
+        <button class="btn btn-outline-success my-2 my-sm-0" (click)="recherche()">Cherchez un modèle</button>
+      </form>
+    </div>
+  </nav>
+
+  <section class="jumbotron text-center">
+    <div class="container">
+      <h1>LA Factory</h1>
+      <p class="lead">Construisez vos modèles en bois en toute simplicité</p>
+      <p>
+        <a href="#" class="btn btn-warning my-2" style="margin-right: 10px;">Voir les modèles</a>
+        <a href="#" class="btn btn-secondary my-2">Demandez un modèle </a>
+      </p>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+           
+            <div class="card-body">
+                <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">
+              <p class="card-text">Exemple 1</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Voir ce modèle</button>
+                </div>
+                <small class="text-muted">Normal</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+            
+            <div class="card-body">
+                <img src="https://www.magiedesautomates.fr/3291-large_default/maquette-en-bois-tracteur-anime.jpg">
+              <p class="card-text">Exemple 2</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Voir ce modèle</button>
+                </div>
+                <small class="text-muted">Avancé</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+           
+            <div class="card-body">
+                <img src="https://youdoit.fr/9871-large_default/maquette-en-bois-3d-a-customiser-30-13-17-cm-camping-car.jpg">
+              <p class="card-text">Exemple 3</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Voir ce modèle</button>
+                </div>
+                <small class="text-muted">Occasionnel</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+<footer class="text-muted">
+  <div class="container">
+    <p>&copy;2020 - LA Factory</p>
+    <p>
+      <a href="#">Retour en haut</a>
+    </p>
+    
+   
+  </div>
+</footer>

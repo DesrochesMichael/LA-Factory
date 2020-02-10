@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Model } from '../Model';
+import { CRUDModelService } from '../crudmodel.service';
 
 @Component({
   selector: 'app-list-model',
@@ -7,6 +8,7 @@ import { Model } from '../Model';
   styleUrls: ['./list-model.component.css']
 })
 export class ListModelComponent implements OnInit {
+
 
   private model: Model = new Model(1, "REAZ", 10, 10);
   private models: Array<Model> = [
@@ -17,10 +19,13 @@ export class ListModelComponent implements OnInit {
     new Model(5, "MICKAEL", 10, 10),
   ];
 
+  constructor(private srvModel: CRUDModelService) { 
 
-  constructor() { }
-
-  ngOnInit() {
   }
 
+  ngOnInit() {//Déclenche une action quand le composant est chargée
+    this.srvModel.findAll();
+  }
+
+  
 }

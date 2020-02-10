@@ -50,11 +50,11 @@ public class Modele {
 	private int bois;
 	
 	@OneToMany(mappedBy="modele")
-	@JsonView(Views.Modele.class)
+	@JsonView(Views.ModeleWithEtapes.class)
 	private List<Etape> etapes;
 	
 	@OneToMany(mappedBy="modele")
-	@JsonView(Views.Modele.class)
+	@JsonView(Views.ModeleWithNotes.class)
 	private List<Note> notes;
 	
 	@Column(name = "modele_activ")
@@ -67,6 +67,7 @@ public class Modele {
 	@JoinTable(name = "modele_categorie",
 	        joinColumns = @JoinColumn(name = "modele_id"),
 	        inverseJoinColumns = @JoinColumn(name = "cat_id"))
+	@JsonView(Views.ModeleWithCategories.class)
 	private Set<Categorie> categories;
 
 	public int getId() {
