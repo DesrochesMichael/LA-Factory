@@ -57,5 +57,10 @@ public class HomeController {
 	public String creation() {
 		return "creation";
 	}
+	
+	@GetMapping("/idees")
+	public String idees() {
+		return "idees";
+	}
 
 }
