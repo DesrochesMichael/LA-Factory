@@ -10,7 +10,12 @@ export class AppComponent {
   title = 'lafactory';
   public terme: String = null;
   constructor(private router: Router) { }
+ 
   public recherche(): void {
     this.router.navigate(['/recherche', this.terme]);
+  }
+
+  public rechercheCategorie(categorie: String): void {
+    this.router.navigate(['/listemodelecategorie', categorie]);
   }
 }

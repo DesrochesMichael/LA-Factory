@@ -1,30 +1,3 @@
-
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">LA Factory</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto" ngbDropdown>
-        <button class="btn btn-outline-secondary mr-2" id="dropdownManual" ngbDropdownToggle>Modèles en bois</button>
-        <div class="menuDrop" ngbDropdownMenu aria-labelledby="dropdownManual">
-          <button ngbDropdownItem (click)="rechercheCategorie(plateau)">Plateaux de jeu</button>
-          <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">
-          <button ngbDropdownItem (click)="rechercheCategorie(avion)">Avions</button>
-          <img src="https://www.magiedesautomates.fr/3291-large_default/maquette-en-bois-tracteur-anime.jpg">
-          <button ngbDropdownItem (click)="rechercheCategorie(animeau)">Animaux</button>
-          <img src="https://youdoit.fr/9871-large_default/maquette-en-bois-3d-a-customiser-30-13-17-cm-camping-car.jpg">
-        </div>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" [(ngModel)]="terme" [ngModelOptions]="{standalone: true}" />
-        <button class="btn btn-outline-success my-2 my-sm-0" (click)="recherche()">Cherchez un modèle</button>
-      </form>
-    </div>
-  </nav>
-
   <section class="jumbotron text-center">
     <div class="container">
       <h1>LA Factory</h1>
