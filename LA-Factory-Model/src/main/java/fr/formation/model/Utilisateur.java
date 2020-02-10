@@ -30,14 +30,8 @@ public class Utilisateur {
 	
 	@Column(name="util_role", nullable=false)
 	private String role;
+	
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
 
 	public int getId() {
 		return id;
@@ -77,6 +71,14 @@ public class Utilisateur {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	
 	

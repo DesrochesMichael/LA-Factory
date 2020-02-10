@@ -2,6 +2,7 @@ package fr.formation.Controller;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -40,8 +41,11 @@ public class ModeleRestController {
 	@GetMapping("/findid/{id}")
 	@JsonView(Views.Modele.class)
 	public Modele findById(@PathVariable int id) {
-
-		return daoModele.findById(id).get();
+		Modele m = daoModele.findById(id).get();
+		Hibernate.initialize(m.getEtapes());
+		
+		return m;
+		
 	}
 	
 	@GetMapping("/findcategorie/{categorie}")
