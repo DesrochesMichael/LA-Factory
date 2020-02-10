@@ -43,7 +43,7 @@ public class Modele {
 	
 	@Column(name = "modele_temps", nullable = false)
 	@JsonView(Views.Modele.class)
-	private Time temps;
+	private int temps;
 	
 	@Column(name = "modele_bois",length = 25, nullable = false)
 	@JsonView(Views.Modele.class)
@@ -88,11 +88,11 @@ public class Modele {
 		this.nom = nom;
 	}
 
-	public Time getTemps() {
+	public int getTemps() {
 		return temps;
 	}
 
-	public void setTemps(Time temps) {
+	public void setTemps(int temps) {
 		this.temps = temps;
 	}
 
