@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import fr.formation.dao.IDAOModele;
 import fr.formation.model.Modele;
+import fr.formation.views.Views;
 
 
 @CrossOrigin("*")
@@ -27,21 +30,24 @@ public class ModeleRestController {
 
 	
 	@GetMapping
+	@JsonView(Views.Modele.class)
 	public List<Modele> get() {
 
 		return daoModele.findAll();
 	}
 	
 	@GetMapping("/find/{id}")
+	@JsonView(Views.Modele.class)
 	public Modele findById(@PathVariable int id) {
 
 		return daoModele.findById(id).get();
 	}
 	
-//	@GetMapping("/categorie/{categorie}")
-//	public List<Modele> findByCategorie(@PathVariable String categorie) {
-//		return daoModele.findAllByCategorie(categorie);
-//	}
+	@GetMapping("/categorie/{categorie}")
+	@JsonView(Views.Modele.class)
+	public List<Modele> findByCategorie(@PathVariable String categorie) {
+		return daoModele.findByCategorie(categorie);
+	}
 
 	@PutMapping("/{id}")
 	public Modele update(@RequestBody Modele modele) {

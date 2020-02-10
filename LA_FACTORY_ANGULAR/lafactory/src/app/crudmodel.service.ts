@@ -9,27 +9,36 @@ import { AppConfigService } from './app-config.service';
 })
 export class CRUDModelService {
   public models: Array<Model> = null;//public parce qu'on l'utilise dans la vue
+  public model: Model = null;
 
   constructor(private http: HttpClient, private srvAppConfig: AppConfigService) { }
 
   public async findAll(): Promise<Array<Model>> {
     this.models = await this.http
-        .get<Array<Model>>(`${ this.srvAppConfig.url }model`)
+        .get<Array<Model>>(`${ this.srvAppConfig.url }modele`)
         .toPromise();
 
     return this.models;
   }
 
+  public async findById(id: number): Promise<Model> {
+    this.model = await this.http
+        .get<Model>(this.srvAppConfig.url + "modele/find/" +  id)
+        .toPromise();
+
+    return this.model;
+  }
+
   public save(model: Model): void {
     if (model.id == null || model.id == 0) {
       this.http
-          .post<Model>(`${ this.srvAppConfig.url }model`, model)
+          .post<Model>(`${ this.srvAppConfig.url }modele`, model)
           .subscribe(resp => this.models.push(resp));
     }
 
     else {
       this.http
-          .put<Model>(`${ this.srvAppConfig.url }produit/${ model.id }`, model)
+          .put<Model>(`${ this.srvAppConfig.url }modele/${ model.id }`, model)
           .subscribe();
     }
   }
