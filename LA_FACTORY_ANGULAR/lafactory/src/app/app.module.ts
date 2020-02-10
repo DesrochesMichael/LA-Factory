@@ -9,7 +9,6 @@ import { ListModelComponent } from './list-model/list-model.component';
 import { ModelComponent } from './model/model.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { RechercheComponent } from './recherche/recherche.component';
-
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -28,7 +27,7 @@ const routes: Routes = [
     ListModelComponent,
     ModelComponent,
     AccueilComponent,
-    RechercheComponent
+    RechercheComponent,
     ListModelComponent,
   ],
   imports: [
