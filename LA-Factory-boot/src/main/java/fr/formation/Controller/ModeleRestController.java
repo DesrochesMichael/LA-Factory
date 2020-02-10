@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import fr.formation.dao.IDAOModele;
 import fr.formation.model.Modele;
+import fr.formation.views.Views;
 
 
 @CrossOrigin("*")
@@ -23,13 +26,14 @@ import fr.formation.model.Modele;
 public class ModeleRestController {
 	
 	@Autowired
-	IDAOModele daoModele;
+	private IDAOModele daoModele;
 
 	
-	@GetMapping
+	@GetMapping("/liste")
+	@JsonView(Views.Modele.class)
 	public List<Modele> get() {
 
-		return daoModele.findAll();
+		return this.daoModele.findAll();
 	}
 
 	@PutMapping("/{id}")
