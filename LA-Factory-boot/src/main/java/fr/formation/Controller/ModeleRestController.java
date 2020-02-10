@@ -35,6 +35,19 @@ public class ModeleRestController {
 
 		return this.daoModele.findAll();
 	}
+	
+	@GetMapping("/find/{id}")
+	@JsonView(Views.Modele.class)
+	public Modele findById(@PathVariable int id) {
+
+		return daoModele.findById(id).get();
+	}
+	
+	@GetMapping("/categorie/{categorie}")
+	@JsonView(Views.Modele.class)
+	public List<Modele> findByCategorie(@PathVariable String categorie) {
+		return daoModele.findByCategorie(categorie);
+	}
 
 	@PutMapping("/{id}")
 	public Modele update(@RequestBody Modele modele) {
@@ -49,7 +62,7 @@ public class ModeleRestController {
 
 	}
 
-	@DeleteMapping("/{id}")
+	@DeleteMapping("/delete/{id}")
 	public void delete(@PathVariable int id) {
 		daoModele.deleteById(id);
 	}

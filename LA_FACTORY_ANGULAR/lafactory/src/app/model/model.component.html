@@ -1,5 +1,5 @@
 <header>
-    <h1>{{model.nom}}</h1>
+    <h1>{{srvModel.model.nom}}</h1>
 </header>
 
 
@@ -20,18 +20,19 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{model.temps}}</td>
-                    <td>{{model.niveau}}</td>
-                    <td>model.bois</td>
+                    <td>{{srvModel.model.temps}} min</td>
+                    <td>{{srvModel.model.niveau}}</td>
+                    <td>{{model.bois}}</td>
                 </tr>
             </tbody>
         </table>
     </section>
+
     <section>
         <table class="table table-striped">
             <tbody>
                 <tr>
-                    <td>{{model.temps}}</td>
+                    <td>Deuxième tableau</td>
                 </tr>
             </tbody>
         </table>
