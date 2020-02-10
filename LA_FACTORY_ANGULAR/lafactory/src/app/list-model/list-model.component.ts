@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Model } from '../Model';
-import { CRUDModelService } from '../crudmodel.service';
+import { CRUDModelService } from '../crudmodel.service'
 
 @Component({
   selector: 'app-list-model',

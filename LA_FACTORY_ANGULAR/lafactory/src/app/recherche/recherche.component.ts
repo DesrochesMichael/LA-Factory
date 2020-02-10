@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CRUDModelService } from '../crudmodel.service';
+import { Model } from '../Model';
 
 @Component({
   selector: 'app-recherche',
@@ -8,15 +10,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RechercheComponent implements OnInit {
 
-  public terme: String;
+  private nom: String;
 
-  constructor(private route: ActivatedRoute) { 
+  constructor(private route: ActivatedRoute, private srvModel: CRUDModelService) { 
     this.route.params.subscribe(params => {
-      this.terme=params['terme'];
+      this.srvModel.findByNom(params['nom']);
+      this.nom=params['nom'];
       });
   }
 
   ngOnInit(): void {
+
   }
 
 }
