@@ -29,6 +29,7 @@ const routes: Routes = [
     ModelComponent,
     AccueilComponent,
     RechercheComponent
+    ListModelComponent,
   ],
   imports: [
     BrowserModule,
