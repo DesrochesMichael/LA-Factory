@@ -29,7 +29,7 @@ public class Etape {
 	private Modele modele;
 	
 	@Column(name = "etape_titre", length = 25, nullable = false)
-	@JsonView(Views.Etape.class)
+	@JsonView({Views.Etape.class, Views.ModeleWithEtapes.class})
 	private String titre;
 	
 	@Column(name = "etape_description", length = 500, nullable = false)
