@@ -29,7 +29,7 @@ public class ModeleRestController {
 	private IDAOModele daoModele;
 
 	
-	@GetMapping("/liste")
+	@GetMapping
 	@JsonView(Views.Modele.class)
 	public List<Modele> get() {
 
