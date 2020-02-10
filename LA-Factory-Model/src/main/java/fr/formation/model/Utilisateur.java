@@ -24,6 +24,17 @@ public class Utilisateur {
 	
 	@Column(name = "uti_mail", nullable = true)
 	private String mail;
+	
+	@Column(name = "uti_password", nullable = true)
+	private String password;
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
 	public int getId() {
 		return id;

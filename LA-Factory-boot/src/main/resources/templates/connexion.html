@@ -9,8 +9,7 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>	  
 </head>
 <body>
-<form id="connexion" method="POST" action="performLogin" class="form-group">
-	<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"></input>
+<form id="connexion" method="POST" class="form-group">
 	<div class="form-group">
 		<label for="email">Email</label>
 		<input class="form-control" id="email" type="text" name="email" placeholder="email" required />
