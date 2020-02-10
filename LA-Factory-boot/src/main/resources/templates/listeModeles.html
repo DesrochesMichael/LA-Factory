@@ -40,7 +40,7 @@
 				
 				<tbody>
 						<tr th:each="modele : ${ modeles }">
-							<td><b>[[${ modele.nom }]]</b></td>
+							<td ><b><a th:href="@{detail(modeleId=${ modele.id })}">[[${ modele.nom }]]</a></b></td>
 							<td>[[${ modele.id }]]</td>
 							<td>[[${ modele.niveau }]]</td>
 							<td>[[${ modele.temps }]]</td>
