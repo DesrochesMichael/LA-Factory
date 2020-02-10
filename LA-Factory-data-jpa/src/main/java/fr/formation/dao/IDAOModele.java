@@ -10,6 +10,6 @@ import org.springframework.ui.Model;
 import fr.formation.model.Modele;
 
 public interface IDAOModele extends JpaRepository<Modele, Integer> {
-	@Query("select m from Model m inner join fetch Categorie c where c = :categorie")
-	public List<Modele> findAllByCategorie(@Param("categorie") String categorie);
+//	@Query("select m from Model m inner join fetch Categorie c where c = :categorie")
+//	public List<Modele> findAllByCategorie(@Param("categorie") String categorie);
 }
