@@ -20,9 +20,4 @@ export class ModelComponent implements OnInit {
     
   }
 
-  public findModelById(id: string): void{
-
-
-  }
-
 }

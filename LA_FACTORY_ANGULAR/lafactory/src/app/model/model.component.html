@@ -31,8 +31,9 @@
     <section>
         <table class="table table-striped">
             <tbody>
-                <tr>
-                    <td>Deuxième tableau</td>
+                <tr *ngFor="let e of srvModel.model.etapes">
+                    <td>{{e.numero}}</td>
+                    <td>{{e.description}}</td>
                 </tr>
             </tbody>
         </table>
