@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>LA-Factory</title>
+<title>LA-Factory Utilisateur</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -11,25 +11,29 @@
 
 <body>
 	<nav th:replace="navigation.html"></nav>
+	<h2>Liste des utilisateurs ayant un accès.</h2>
+	<div class="container">
 	<table class="table table-striped">
-		<thead>
+		<thead class="thead-dark">
 			<tr>
-				<th>Nom</th>
-				<th>Prenom</th>
-				<th>Mail</th>
-				<th>Role</th>
-				<th>Password</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prenom</th>
+				<th scope="col">Mail</th>
+				<th scope="col">Role</th>
+				<th scope="col">Password</th>
+				<th scope="col"></th>
+				<th scope="col"></th>
 			</tr>
 
 		</thead>
 		<tbody>
 
 			<tr th:each="utilisateur: ${utilisateurs}">
-				<td th:text="${utilisateur.nom}"></td>
-				<td th:text="${utilisateur.prenom}"></td>
-				<td th:text="${utilisateur?.mail}"></td>
-				<td th:text="${utilisateur.role}"></td>
-				<td th:text="${utilisateur?.password}"></td>
+				<td scope="row" th:text="${utilisateur.nom}"></td>
+				<td scope="row" th:text="${utilisateur.prenom}"></td>
+				<td scope="row" th:text="${utilisateur?.mail}"></td>
+				<td scope="row" th:text="${utilisateur.role}"></td>
+				<td scope="row" th:text="${utilisateur?.password}"></td>
 
 
 				<td><a class="btn btn-warning" href="edit"   th:href="@{editUtilisateur(id=${utilisateur.id})}"> Editer</a></td>
@@ -38,7 +42,7 @@
 			</tr>
 		</tbody>
 	</table>
-
+</div>
 <a href=ajoutUtilisateur class="btn btn-success">Creer un utilisateur</a>
 
 	

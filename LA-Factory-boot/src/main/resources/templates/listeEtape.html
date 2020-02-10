@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>LA-Factory</title>
+<title>LA-Factory étapes</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -11,36 +11,42 @@
 
 <body>
 	<nav th:replace="navigation.html"></nav>
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Titre</th>
-				<th>Description</th>
-				<th>Numero</th>
-				<th>Lien</th>
-				<th>Nom du modèle</th>
-			</tr>
+	<h2>Liste de toutes les étapes.</h2>
 
-		</thead>
-		<tbody>
+	<div class="container">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Titre</th>
+					<th scope="col">Description</th>
+					<th scope="col">Numero</th>
+					<th scope="col">Lien</th>
+					<th scope="col">Nom du modèle</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
 
-			<tr th:each="etape: ${etapes}">
-				<td th:text="${etape.titre}"></td>
-				<td th:text="${etape.description}"></td>
-				<td th:text="${etape.numero}"></td>
-				<td th:text="${etape.lien}"></td>
-				<td th:text="${etape?.modele?.nom}"></td>
+			</thead>
+			<tbody>
+
+				<tr th:each="etape: ${etapes}">
+					<td scope="row" th:text="${etape.titre}"></td>
+					<td scope="row" th:text="${etape.description}"></td>
+					<td scope="row" th:text="${etape.numero}"></td>
+					<td scope="row" th:text="${etape.lien}"></td>
+					<td scope="row" th:text="${etape?.modele?.nom}"></td>
 
 
 
-				<td><a class="btn btn-warning"
-					th:href="@{editEtape(id=${etape.id})}"> Editer</a></td>
-				<td><a class="btn btn-danger"
-					th:href="@{supEtape(id=${etape.id})}"> Supprimer</a></td>
+					<td><a class="btn btn-warning"
+						th:href="@{editEtape(id=${etape.id})}"> Editer</a></td>
+					<td><a class="btn btn-danger"
+						th:href="@{supEtape(id=${etape.id})}"> Supprimer</a></td>
 
-			</tr>
-		</tbody>
-	</table>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 	<form method="post">
 

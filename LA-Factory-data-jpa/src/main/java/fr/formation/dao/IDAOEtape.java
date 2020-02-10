@@ -9,4 +9,5 @@ import fr.formation.model.Etape;
 public interface IDAOEtape  extends JpaRepository<Etape, Integer>{
 
 	List<Etape> findByModeleId (int id);
+	Etape findTopByOrderByIdDesc();
 }

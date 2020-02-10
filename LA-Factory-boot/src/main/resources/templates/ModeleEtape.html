@@ -12,39 +12,43 @@
 <body>
 	<nav th:replace="navigation.html"></nav>
 	<h1>Nom du modèle : [[${modele.nom}]]</h1>
+	<div class="container">
+		<table class="table table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col">Titre</th>
+					<th scope="col">Description</th>
+					<th scope="col">Numero</th>
+					<th scope="col">Lien</th>
+					<th scope="col"></th>
+					<th scope="col"></th>
+				</tr>
 
-	<table class="table table-striped">
-		<thead>
-			<tr>
-				<th>Titre</th>
-				<th>Description</th>
-				<th>Numero</th>
-				<th>Lien</th>
+			</thead>
+			<tbody>
 
-			</tr>
-
-		</thead>
-		<tbody>
-
-			<tr th:each="eta: ${etapes}">
-				<td th:text="${eta.titre}"></td>
-				<td th:text="${eta.description}"></td>
-				<td th:text="${eta.numero}"></td>
-				<td th:text="${eta.lien}"></td>
+				<tr th:each="eta: ${etapes}">
+					<td scope="row" th:text="${eta.titre}"></td>
+					<td scope="row" th:text="${eta.description}"></td>
+					<td scope="row" th:text="${eta.numero}"></td>
+					<td scope="row" th:text="${eta.lien}"></td>
 
 
 
 
-				<td><a class="btn btn-warning"
-					th:href="@{editModeleEtape(id=${eta.id})}"> Editer</a></td>
-				<td><a class="btn btn-danger"
-					th:href="@{supModeleEtape(id=${eta.id})}"> Supprimer</a></td>
+					<td><a class="btn btn-warning"
+						th:href="@{editModeleEtape(id=${eta.id})}"> Editer</a></td>
+					<td><a class="btn btn-danger"
+						th:href="@{supModeleEtape(id=${eta.id})}"> Supprimer</a></td>
 
-			</tr>
-		</tbody>
-	</table>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 	<form method="post">
+
+
 
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
@@ -85,7 +89,7 @@
 
 		<div>
 			<button class="btn btn-success" type="submit" th:if="${etape?.id==0}">add
-				me ! </button>
+				me !</button>
 			<button class="btn btn-info" type="submit" th:if="${etape?.id!=0}">mod
 				me !</button>
 		</div>
