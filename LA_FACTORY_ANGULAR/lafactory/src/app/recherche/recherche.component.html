@@ -1,0 +1,142 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">LA Factory</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" [(ngModel)]="terme" [ngModelOptions]="{standalone: true}" />
+        <button class="btn btn-outline-success my-2 my-sm-0">Cherchez un modèle</button>
+      </form>
+    </div>
+  </nav>
+
+
+<div class="container">
+    <div class="py-5 text-center">
+     
+      <h2>Résultats pour : "{{terme}}"</h2>
+      <p class="lead">!!!!!!!!!!!!!!!!!!!!!!!!! ICI Résulats de la recherche ICI !!!!!!!!!!!!!!!!!!!!!! </p>
+    </div>
+  
+    <div class="row">
+      
+      <div class="col-md-12">
+        <h4 class="mb-3">Recherche avancée</h4>
+        <form >
+       
+  
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Nom du modèle
+                </span>
+              </div>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Code du modèle
+                </span>
+              </div>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Catégorie     
+                </span>
+              </div>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choisissez...</option>
+                <option>Plateaux de jeu</option>
+                <option>Avions</option>
+                <option>Animaux</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Temps de réalisation         
+                </span>
+              </div>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choisissez...</option>
+                <option>Inférieur à  10 min</option>
+                <option>Inférieur à  30 min</option>
+                <option>Supérieur à  30 min</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Niveau      
+                </span>
+              </div>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choisissez...</option>
+                <option>Occasionnel</option>
+                <option>Normal</option>
+                <option>Avancé</option>
+                <option>Expert</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Bois nécessaire      
+                </span>
+              </div>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choisissez...</option>
+                <option>Peu</option>
+                <option>Normal</option>
+                <option>Beaucoup</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">Note 
+                </span>
+              </div>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">Choisissez...</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+
+  
+          
+          <hr class="mb-4">
+  
+          
+   
+          <button class="btn btn-warning btn-lg btn-block" type="submit">Lancer la recherche</button>
+        </form>
+      </div>
+    </div>
+  
+  </div>
+
+ 
