@@ -52,5 +52,10 @@ public class HomeController {
 	public String goMenu() {
 		return "menuPrincipal";
 	}
+	
+	@GetMapping("/creation")
+	public String creation() {
+		return "creation";
+	}
 
 }
