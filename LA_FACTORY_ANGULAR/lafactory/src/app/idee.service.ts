@@ -10,16 +10,15 @@ import { AppConfigService } from './app-config.service';
 export class IdeeService {
 
   public idee: Idee = null;
-  public idees: Array<Idee> = null;
+  public idees: Array<Idee> = Array<Idee>();
 
   constructor(private srvAppConfig: AppConfigService, private http: HttpClient) { }
 
   public save(idee: Idee): void{
 
           this.http
-          .post<Idee>(this.srvAppConfig.url, idee)
+          .post<Idee>(this.srvAppConfig.url+'/idee', idee, this.srvAppConfig.entete())
           .subscribe(resp => this.idees.push(resp));
     
-  
 }
 }
