@@ -24,7 +24,8 @@
 			<tr th:each="categorie: ${categories}">
 				<td th:text="${categorie.id}"></td>
 				<td th:text="${categorie.nom}"></td>
-				<td th:text="${categorie.parent.nom}"></td>
+				<td th:if="${categorie.parent == null}" text="Pas de parent"></td>
+				<td th:if="${categorie.parent != null}" th:text="${categorie.parent.nom}"></td>
 
 
 				<td><a class="btn btn-warning"> editer</a></td>
@@ -36,17 +37,22 @@
 
 
 
-	<form method="post">
+<form method="post">
 	
-		<div>
+<div th:if="${cat.id==0}">
+			nom : <input type="text" name="cat_nom" placeholder="nom de la nouvelle categorie">
+		</div>
+		<div th:if="${cat.id!=0}">
 			nom : <input type="text" name="cat_nom"
 				th:value="${categorie.nom}">
-		</div>
-		<div>
-			parent : <select name="categorie.id" class="form-control">
+</div>
+		
+<div>
+			parent : <select name="cat.id" class="form-control">
 						<option th:each="categorie : ${categories}"
 								th:value="${ categorie.id }" 
-								th:text="${ categorie.nom }">
+								th:text="${ categorie.nom }"
+								th:selected="${ categorie.id ==cat?.parent?.id }">
 						</option>
 					</select>
 		</div>
@@ -54,8 +60,8 @@
 		
 		
 		<div>
-			<button type="submit" th:if="${categorie.id==null}">ajouter</button>
-			<button type="submit" th:if="${categorie.id!=null}">modifier</button>
+			<button type="submit" th:if="${cat.id==0}" class="btn btn-warning">ajouter</button>
+			<button type="submit" th:if="${cat.id!=0}" class="btn btn-danger">modifier</button>
 		</div>
 	</form>
 
