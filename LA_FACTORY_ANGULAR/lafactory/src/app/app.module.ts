@@ -12,6 +12,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { RechercheComponent } from './recherche/recherche.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ListModelCategorieComponent } from './list-model-categorie/list-model-categorie.component';
 
 const routes: Routes = [
   {path : 'listemodele', component: ListModelComponent},
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'accueil', component: AccueilComponent },
   { path: 'recherche', component: RechercheComponent },
   { path: 'recherche/:terme', component: RechercheComponent } ,
+  { path: 'listemodelecategorie/:categorie', component: ListModelCategorieComponent } ,
   { path: '', redirectTo: 'accueil', pathMatch: 'full' }
 ];
 
@@ -29,7 +31,8 @@ const routes: Routes = [
     ModelComponent,
     AccueilComponent,
     RechercheComponent,
-    ListModelComponent
+    ListModelComponent,
+    ListModelCategorieComponent
   ],
   imports: [
     BrowserModule,
