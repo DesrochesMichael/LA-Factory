@@ -52,8 +52,6 @@ public class Etape {
 		this.id = id;
 	}
 
-
-
 	public Modele getModele() {
 		return modele;
 	}
