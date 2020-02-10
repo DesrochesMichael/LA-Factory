@@ -25,23 +25,23 @@ public class Etape {
 	
 	@ManyToOne
 	@JoinColumn(name = "etape_modele", nullable = false)
-	@JsonView(Views.Etape.class)
+	@JsonView({Views.Etape.class})
 	private Modele modele;
 	
 	@Column(name = "etape_titre", length = 25, nullable = false)
-	@JsonView(Views.Etape.class)
+	@JsonView({Views.Etape.class, Views.Modele.class})
 	private String titre;
 	
 	@Column(name = "etape_description", length = 500, nullable = false)
-	@JsonView(Views.Etape.class)
+	@JsonView({Views.Etape.class, Views.Modele.class})
 	private String description;
 	
 	@Column(name = "etape_numero", length = 25, nullable = false)
-	@JsonView(Views.Etape.class)
+	@JsonView({Views.Etape.class, Views.Modele.class})
 	private int numero;
 	
 	@Column(name = "etape_lien", nullable = true)
-	@JsonView(Views.Etape.class)
+	@JsonView({Views.Etape.class, Views.Modele.class})
 	private String lien;
 
 	public int getId() {
