@@ -38,10 +38,10 @@ public class ModeleRestController {
 		return daoModele.findById(id).get();
 	}
 	
-	@GetMapping("/categorie/{categorie}")
-	public List<Modele> findByCategorie(@PathVariable String categorie) {
-		return daoModele.findAllByCategorie(categorie);
-	}
+//	@GetMapping("/categorie/{categorie}")
+//	public List<Modele> findByCategorie(@PathVariable String categorie) {
+//		return daoModele.findAllByCategorie(categorie);
+//	}
 
 	@PutMapping("/{id}")
 	public Modele update(@RequestBody Modele modele) {
