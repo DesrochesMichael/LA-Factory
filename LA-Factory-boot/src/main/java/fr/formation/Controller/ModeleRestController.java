@@ -36,14 +36,14 @@ public class ModeleRestController {
 		return this.daoModele.findAll();
 	}
 	
-	@GetMapping("/find/{id}")
+	@GetMapping("/findid/{id}")
 	@JsonView(Views.Modele.class)
 	public Modele findById(@PathVariable int id) {
 
 		return daoModele.findById(id).get();
 	}
 	
-	@GetMapping("/categorie/{categorie}")
+	@GetMapping("/findcategorie/{categorie}")
 	@JsonView(Views.Modele.class)
 	public List<Modele> findByCategorie(@PathVariable String categorie) {
 		return daoModele.findByCategorie(categorie);

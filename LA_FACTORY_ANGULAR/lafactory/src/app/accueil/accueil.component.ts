@@ -8,15 +8,21 @@ import { Router } from '@angular/router';
 })
 export class AccueilComponent implements OnInit {
 
-  public terme: String = null;
+  
 
   constructor(private router: Router) { }
   
   ngOnInit(): void {
   }
 
-  public recherche(): void {
-    this.router.navigate(['/recherche', this.terme]);
+ 
+
+  public listeModeles(): void {
+    this.router.navigate(['/listemodele']);
+  }
+
+  public boiteAIdee(): void {
+    this.router.navigate(['/boiteidee']);
   }
 
 }

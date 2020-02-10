@@ -10,14 +10,14 @@ import { CRUDModelService } from '../crudmodel.service';
 export class ListModelComponent implements OnInit {
 
 
-  private model: Model = new Model(1, "REAZ", 10, 10);
-  private models: Array<Model> = [
-    new Model(1, "REAZ", 10, 10),
-    new Model(2, "JOAQUIM", 10, 10),
-    new Model(3, "THIBAUD", 10, 10),
-    new Model(4, "SILLAS", 10, 10),
-    new Model(5, "MICKAEL", 10, 10),
-  ];
+  // private model: Model = new Model(1, "REAZ", 10, 10);
+  // private models: Array<Model> = [
+  //   new Model(1, "REAZ", 10, 10),
+  //   new Model(2, "JOAQUIM", 10, 10),
+  //   new Model(3, "THIBAUD", 10, 10),
+  //   new Model(4, "SILLAS", 10, 10),
+  //   new Model(5, "MICKAEL", 10, 10),
+  // ];
 
   constructor(private srvModel: CRUDModelService) { 
 
