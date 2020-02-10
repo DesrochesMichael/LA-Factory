@@ -37,6 +37,14 @@ export class CRUDModelService {
     return this.models;
   }
 
+  public async findByNom(nom: String): Promise<Array<Model>> {
+    this.models = await this.http
+        .get<Array<Model>>(this.srvAppConfig.url + "modele/findnom/" +  nom, this.srvAppConfig.entete())
+        .toPromise();
+
+    return this.models;
+  }
+
   public save(model: Model): void {
     if (model.id == null || model.id == 0) {
       this.http
@@ -50,6 +58,8 @@ export class CRUDModelService {
           .subscribe();
     }
   }
+
+  
 
   public delete(model: Model): void {
     this.http
