@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
@@ -46,7 +47,7 @@ public class Categorie {
 	private String nom;
 	
 	@ManyToMany(mappedBy = "categories")
-	@JsonView(Views.CategorieWithModeles.class)
+	@JsonView({Views.Categorie.class, Views.CategorieWithModeles.class})
 	Set<Modele> modeles;
 
 	public int getId() {

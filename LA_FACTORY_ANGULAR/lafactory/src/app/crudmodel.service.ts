@@ -39,7 +39,7 @@ export class CRUDModelService {
 
   public async findByNom(nom: String): Promise<Array<Model>> {
     this.models = await this.http
-        .get<Array<Model>>(this.srvAppConfig.url + "modele/findnom/" +  nom, this.srvAppConfig.entete())
+        .get<Array<Model>>(this.srvAppConfig.url + "modele/findnom/" +  nom)
         .toPromise();
 
     return this.models;

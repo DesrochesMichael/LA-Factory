@@ -13,8 +13,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonView;
+
 import fr.formation.dao.IDAOCategorie;
 import fr.formation.model.Categorie;
+import fr.formation.views.Views;
 
 @CrossOrigin("*")
 @RestController
@@ -27,17 +30,32 @@ public class CategorieRestController {
 
 	
 	@GetMapping
+	@JsonView(Views.Categorie.class)
 	public List<Categorie> get() {
 		return daoCategorie.findAll();
 	}
+	
+	@GetMapping("/findnom/{nom}")
+	@JsonView(Views.Categorie.class)
+	public List<Categorie> findByNom(@PathVariable String nom) {
+		return daoCategorie.findByNom(nom);
+	}
+	
+	@GetMapping("/findparent/{parent}")
+	@JsonView(Views.Categorie.class)
+	public List<Categorie> findByNom(@PathVariable int parent) {
+		return daoCategorie.findByParent(daoCategorie.findById(parent).get());
+	}
 
-	@PutMapping("/{id}")
+	@PutMapping("/update/{id}")
+	@JsonView(Views.Categorie.class)
 	public Categorie update(@RequestBody Categorie categorie) {
 		daoCategorie.save(categorie);
 		return categorie;
 	}
 
 	@PostMapping
+	@JsonView(Views.Categorie.class)
 	public Categorie save(@RequestBody Categorie categorie) {
 		daoCategorie.save(categorie);
 		return categorie;
@@ -45,6 +63,7 @@ public class CategorieRestController {
 	}
 
 	@DeleteMapping("/{id}")
+	@JsonView(Views.Categorie.class)
 	public void delete(@PathVariable int id) {
 		daoCategorie.deleteById(id);
 	}

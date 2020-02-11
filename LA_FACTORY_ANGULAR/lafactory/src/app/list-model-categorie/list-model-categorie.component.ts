@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CRUDModelService } from '../crudmodel.service';
+import { CRUDCategorieService } from '../crudcategorie.service';
 import { ActivatedRoute } from '@angular/router';
+import { Categorie } from '../Categorie';
 
 @Component({
   selector: 'app-list-model-categorie',
@@ -9,8 +11,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ListModelCategorieComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private srvModel: CRUDModelService) { 
-    this.route.params.subscribe(params => this.srvModel.findByCategorie(params.categorie));
+  private categories= Array<Categorie>();
+  constructor(private route: ActivatedRoute, private srvModel: CRUDModelService, private srvCategorie: CRUDCategorieService) { 
+    this.route.params.subscribe(params =>{
+      this.srvCategorie.findByCategorie(params.id)
+    });
   }
 
   ngOnInit() {
