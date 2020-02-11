@@ -55,6 +55,14 @@ public class Note {
 		return id;
 	}
 
+	public int getValeur() {
+		return valeur;
+	}
+
+	public void setValeur(int valeur) {
+		this.valeur = valeur;
+	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
