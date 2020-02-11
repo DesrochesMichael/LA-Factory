@@ -82,18 +82,17 @@
 
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon3">Catégories du modèle :</span>
+						<span class="input-group-text" id="basic-addon3">Catégories
+							du modèle :</span>
 					</div>
-					
+
 					<select name="categories">
 						<option th:each="categorie : ${listeCategories}"
-								th:value="${categorie.id}"
-								th:text="${ categorie.nom }"
-								th:selected="${ categorie.id ==modele?.categories?.id }">
+							th:value="${categorie.id}" th:text="${ categorie.nom }">
 						</option>
 					</select>
 				</div>
-				
+
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon3">Niveau de
@@ -101,7 +100,7 @@
 					</div>
 
 					<select name="niveau">
-						<option th:value="Normal" >Normal</option>
+						<option th:value="Normal">Normal</option>
 						<option th:value="Avance">Avancé</option>
 						<option th:value="Expert">Expert</option>
 					</select>

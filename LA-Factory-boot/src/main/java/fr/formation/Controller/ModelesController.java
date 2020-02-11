@@ -85,6 +85,8 @@ public class ModelesController {
 		Modele m = daoModele.findById(id).orElse(null);
 		model.addAttribute("modele", m);
 		model.addAttribute("modeles", daoModele.findAll());
+		List<Categorie> categories = daoCategorie.findAll();
+		model.addAttribute("listeCategories", categories);
 		return "listeModeles";
 	}
 
