@@ -16,39 +16,80 @@
 
 <body>
 	<nav th:replace="navigation.html"></nav>
-	
-			<div class = "container">
-			<h1>Liste des modèles</h1>
-			<a th:href = "@{ ajouterModele}" type="button" class="btn btn-info">Ajouter un modèle</a>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th></th>
-						<th>ID</th>
-						<th>Niveau de difficulté</th>
-						<th>Temps de construction</th>
-						<th>Quantité de bois</th>
-						<th>Etapes</th>
-						<th>Note</th>
-						<th>Modèle activé sur site<th>
-					</tr>
-				</thead>
-				
-				<tbody>
-						<tr th:each="modele : ${ modeles }">
-							<td ><b><a th:href="@{ModeleEtape(id=${ modele.id })}">[[${ modele.nom }]]</a></b></td>
-							<td>[[${ modele.id }]]</td>
-							<td>[[${ modele.niveau }]]</td>
-							<td>[[${ modele.temps }]]</td>
-							<td>[[${ modele.bois}]]</td>
-							<td></td>
-							<td></td>
-							<td th:if="${modele?.activation == true }">Oui</td>
-							<td th:if="${modele?.activation == false }">Non</td>
-							<td th:if="${modele?.activation == null}">Aucune donnée</td>
-						</tr>
-				</tbody>
-			</table>
+	<h2>Les modèles disponibles</h2>
+
+
+	<div class="container">
+		<h1>Liste des modèles</h1>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th></th>
+					<th>ID</th>
+					<th>Niveau de difficulté</th>
+					<th>Temps de construction</th>
+					<th>Quantité de bois</th>
+					<th>Etapes</th>
+					<th>Note</th>
+					<th>Modèle activé sur site
+					<th></th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="modele : ${ modeles }">
+					<td><b>[[${ modele.nom }]]</b></td>
+					<td>[[${ modele.id }]]</td>
+					<td>[[${ modele.niveau }]]</td>
+					<td>[[${ modele.temps }]] minutes</td>
+					<td>[[${ modele.bois}]] bûches</td>
+					<td></td>
+					<td></td>
+					<td th:if="${modele?.activation == true }"><a
+						th:href="@{ swipe(id=${ modele.id })  }" type="button"
+						class="btn btn-success"><b>Oui</b></a> <b>Non</b></td>
+					<td th:if="${modele?.activation == false }"><b>Oui</b> <a
+						th:href="@{ swipe(id=${ modele.id })  }" type="button"
+						class="btn btn-danger"><b>Non</b></a></td>
+					<td th:if="${modele?.activation == null}"><b>Oui</b> <a
+						th:href="@{ swipe(id=${ modele.id })  }" type="button"
+						class="btn btn-danger"><b>Non</b></a></td>
+					<th><a th:href="@{ editerModele(id=${ modele.id })  }"
+						type="button" class="btn btn-primary">Editer</a></th>
+					<th><a th:href="@{ deleteModele(id=${ modele.id })  }"
+						type="button" class="btn btn-danger">Supprimer</a></th>
+				</tr>
+			</tbody>
+		</table>
+		<div class="container">
+			<form method="POST">
+				<div class="input">
+					<label>Nom du modèle: </label> <input type="text" name="nom"
+						th:value="${ modele?.nom }" />
+				</div>
+				<div class="input">
+					<label>Niveau de difficulté du modèle: </label> <select
+						name="niveau">
+						<option th:value="Normal">Normal</option>
+						<option th:value="Avance">Avancé</option>
+						<option th:value="Expert">Expert</option>
+					</select>
+				</div>
+				<div class="input">
+					<label>Temps de construction du modèle: </label> <input
+						type="number" name="temps" th:value="${ modele?.temps }" />
+				</div>
+				<div class="input">
+					<label>Quantité de bûche nécessaires: </label> <input type="number"
+						name="bois" th:value="${ modele?.bois }" />
+				</div>
+				<div>
+					<button th:if="${ modele?.id == null }" type="submit"
+						class="btn btn-primary">Ajouter</button>
+					<button th:if="${ modele?.id != null }" type="submit"
+						class="btn btn-primary">Editer</button>
+				</div>
+			</form>
 		</div>
-		
+	</div>
 </body>
