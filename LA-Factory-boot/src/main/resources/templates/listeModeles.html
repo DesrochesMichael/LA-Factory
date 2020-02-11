@@ -20,12 +20,13 @@
 
 
 	<div class="container">
-		<h1>Liste des modèles</h1>
+
 		<table class="table table-striped">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th></th>
 					<th>ID</th>
+					<th>Catégories</th>
 					<th>Niveau de difficulté</th>
 					<th>Temps de construction</th>
 					<th>Quantité de bois</th>
@@ -40,6 +41,14 @@
 				<tr th:each="modele : ${ modeles }">
 					<td><b><a th:href="@{ModeleEtape(id=${ modele.id })}">[[${ modele.nom }]]</b></td>
 					<td>[[${ modele.id }]]</td>
+					<td>
+						<ul th:each="categorie : ${ modele.categories }">
+							<li>[[${categorie.nom }]]</li>
+							<li th:if="categorie.parent.id!=null"
+								th:each="categorie : ${categorie.parent}">[[${categorie.nom
+								}]]</li>
+						</ul>
+					</td>
 					<td>[[${ modele.niveau }]]</td>
 					<td>[[${ modele.temps }]] minutes</td>
 					<td>[[${ modele.bois}]] bûches</td>
@@ -55,7 +64,7 @@
 						th:href="@{ swipe(id=${ modele.id })  }" type="button"
 						class="btn btn-danger"><b>Non</b></a></td>
 					<th><a th:href="@{ editerModele(id=${ modele.id })  }"
-						type="button" class="btn btn-primary">Editer</a></th>
+						type="button" class="btn btn-warning">Editer</a></th>
 					<th><a th:href="@{ deleteModele(id=${ modele.id })  }"
 						type="button" class="btn btn-danger">Supprimer</a></th>
 				</tr>
@@ -63,31 +72,53 @@
 		</table>
 		<div class="container">
 			<form method="POST">
-				<div class="input">
-					<label>Nom du modèle: </label> <input type="text" name="nom"
-						th:value="${ modele?.nom }" />
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Nom du
+							modèle :</span>
+					</div>
+
+					<input type="text" name="nom" th:value="${ modele?.nom }" />
 				</div>
-				<div class="input">
-					<label>Niveau de difficulté du modèle: </label> <select
-						name="niveau">
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Niveau de
+							difficulté du modèle:</span>
+					</div>
+
+					<select name="niveau">
 						<option th:value="Normal">Normal</option>
 						<option th:value="Avance">Avancé</option>
 						<option th:value="Expert">Expert</option>
 					</select>
+
 				</div>
-				<div class="input">
-					<label>Temps de construction du modèle: </label> <input
-						type="number" name="temps" th:value="${ modele?.temps }" />
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Temps de
+							construction du modèle:</span>
+					</div>
+
+					<input type="number" name="temps" th:value="${ modele?.temps }" />
 				</div>
-				<div class="input">
-					<label>Quantité de bûche nécessaires: </label> <input type="number"
-						name="bois" th:value="${ modele?.bois }" />
+
+
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Quantité
+							de bûche nécessaires:</span>
+					</div>
+					<input type="number" name="bois" th:value="${ modele?.bois }" />
 				</div>
+
 				<div>
 					<button th:if="${ modele?.id == null }" type="submit"
-						class="btn btn-primary">Ajouter</button>
+						class="btn btn-success">Ajouter</button>
 					<button th:if="${ modele?.id != null }" type="submit"
-						class="btn btn-primary">Editer</button>
+						class="btn btn-info">Editer</button>
 				</div>
 			</form>
 		</div>

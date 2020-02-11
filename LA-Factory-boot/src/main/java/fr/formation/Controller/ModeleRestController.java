@@ -40,24 +40,9 @@ public class ModeleRestController {
 
 	@GetMapping("/findid/{id}")
 	@JsonView(Views.ModeleWithNotes.class)
-	public Modele findById(@PathVariable int id, Model model) {
+	public Modele findById(@PathVariable int id) {
 		Modele m = daoModele.findById(id).get();
 		Hibernate.initialize(m.getEtapes());
-
-		float res = 0;
-		int tot = 0;
-		List<Note> notes = m.getNotes();
-		if (notes != null) {
-			int i = notes.size();
-			for (Note n : notes) {
-				tot = tot + n.getValeur();
-			}
-			res = (float) tot/i;
-		}
-		else {
-			res = -1;
-		}
-		model.addAttribute("moyenne", res);
 		return m;
 
 	}
