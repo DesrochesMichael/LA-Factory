@@ -76,30 +76,18 @@ public class Modele {
 	@JsonView(Views.ModeleWithCategories.class)
 	private Set<Categorie> categories;
 	
-//	@Column(name = "modele_note_moy") 
-//	@JsonView(Views.ModeleWithNotes.class) 
-//	private float noteMoy = 0; 
-//
-//	public float getNoteMoy() {
-//		return noteMoy;
-//	}
-//
-//	public void setNoteMoy(float noteMoy) {
-//		this.noteMoy = noteMoy;
-//	}
+	@Column(name = "modele_note_moy", columnDefinition = "float(7,2) default 0") 
+	@JsonView(Views.ModeleWithNotes.class) 
+	private float noteMoy; 
+
 	
-	public Modele() {
-		
+	public float getNoteMoy() {
+		return noteMoy;
 	}
 
-	
-
-	public Modele(String nom) {
-	
-	this.nom = nom;
-}
-
-
+	public void setNoteMoy(float noteMoy) {
+		this.noteMoy = noteMoy;
+	}
 
 	public int getId() {
 		return id;
@@ -138,6 +126,14 @@ public class Modele {
 
 	public int getBois() {
 		return bois;
+	}
+
+	public float getNoteMoy() {
+		return noteMoy;
+	}
+
+	public void setNoteMoy(float noteMoy) {
+		this.noteMoy = noteMoy;
 	}
 
 	public void setBois(int bois) {
