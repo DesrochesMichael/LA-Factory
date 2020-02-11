@@ -32,13 +32,6 @@ public class ModelesController {
 		return "listeModeles";
 	}
 	
-	@GetMapping("/detail/{modeleId}")
-	public String getDetail(@PathVariable int id,
-			Model model) {
-		model.addAttribute(daoModele.findById(id));
-		return null;
-	}
-	
 	@PostMapping("/listeModeles")
 	public String addModele(@ModelAttribute Modele modele) {
 		daoModele.save(modele);
