@@ -87,6 +87,19 @@ public class Modele {
 //	public void setNoteMoy(float noteMoy) {
 //		this.noteMoy = noteMoy;
 //	}
+	
+	public Modele() {
+		
+	}
+
+	
+
+	public Modele(String nom) {
+	
+	this.nom = nom;
+}
+
+
 
 	public int getId() {
 		return id;
@@ -171,6 +184,7 @@ public class Modele {
 	public void setCategories(Set<Categorie> categories) {
 		this.categories = categories;
 	}
+
 
 	
 	

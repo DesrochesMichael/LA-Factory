@@ -19,8 +19,8 @@
                     <tr>
                         <td>{{srvModel.model.temps}} min</td>
                         <td>{{srvModel.model.niveau}}</td>
-                        <td>{{model.bois}}</td>
-                        <td>{{model.note}}</td>
+                        <td>{{srvModel.model.bois}} bûches</td>
+                        <td>{{srvModel.model.noteMoyenne}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -77,7 +77,7 @@
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Nom</label>
-            <input type="text" class="form-control" [(ngModel)]="note.nom" name="nom" placeholder="Dupont" value="" required>
+            <input type="text" class="form-control" [(ngModel)]="note.nom" name="nom" placeholder="Dupont" required>
             <div class="invalid-feedback">
                 Entrez un nom
             </div>
@@ -100,7 +100,7 @@
 
         <div class="mb-3">
          
-            <textarea class="form-control" [(ngModel)]="note.commentaire" name="message" placeholder="Laissez votre commentaire" rows="4" required></textarea>
+            <textarea class="form-control" [(ngModel)]="note.commentaire" name="commentaire" placeholder="Laissez votre commentaire" rows="4" required></textarea>
             <div class="invalid-feedback">
                 Ecrivez votre commentaire
               </div>
@@ -109,7 +109,7 @@
         <h4 class="mb-3">Votre note</h4>
         <div class="mb-3">
          
-            <select [(ngModel)]="note.valeur">
+            <select [(ngModel)]="note.valeur" name="valeur">
                 <option value="0">0</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -122,7 +122,7 @@
        
        
         <hr class="mb-4">
-        <button class="btn btn-warning btn-lg btn-block" (click)="ajouterNote(note, srvModel)">Notez ce modele</button>
+        <button class="btn btn-warning btn-lg btn-block" (click)="ajouterNote(note)">Notez ce modele</button>
       </form>
 
       <hr class="mb-4">
@@ -137,7 +137,7 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let n of srvModel.model.notes">
+            <tr *ngFor="let n of srvNote.notes">
                 <td>{{n.prenom}}</td>
                 <td>{{n.valeur}}</td>
                 <td>{{n.commentaire}}</td>

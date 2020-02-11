@@ -18,6 +18,7 @@ export class BoiteIdeeComponent implements OnInit {
   public ajouterIdee(idee: Idee): void{
     this.srvIdee.save(idee);
     this.idee= new Idee();
+    alert("Merci d'avoir envoyé votre suggestion !");
   }
 
 }

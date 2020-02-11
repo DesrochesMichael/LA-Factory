@@ -19,4 +19,12 @@ export class NoteService {
     .post<Note>(this.srvAppConfig.url+'note', note, this.srvAppConfig.entete())
     .subscribe(resp => this.notes.push(resp));
 }
+
+  public async findByModeleId(id: number): Promise<Array<Note>> {
+  this.notes = await this.http
+      .get<Array<Note>> (this.srvAppConfig.url + "note/id/" +  id)
+      .toPromise();
+
+  return this.notes;
+}
 }

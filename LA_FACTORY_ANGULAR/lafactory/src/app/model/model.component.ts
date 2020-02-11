@@ -15,6 +15,7 @@ export class ModelComponent implements OnInit {
   // private model: Model = new Model(1, "REAZ", 10, 10);
 
   private note: Note = new Note();
+  
  
 
   constructor(private route: ActivatedRoute, private srvModel: CRUDModelService, private srvNote: NoteService) {
@@ -26,14 +27,18 @@ export class ModelComponent implements OnInit {
 
     this.route.params.subscribe(params=>{
       this.note.modele=params.id;
+      this.srvNote.findByModeleId(params.id);
     })
     
   }
 
-  public ajouterNote(note: Note, model: Model): void{
+  public ajouterNote(note: Note): void{
+    
+    note.modele= this.srvModel.model;
     this.srvNote.save(note);
     this.note = new Note();
-    //this.srvModel.save(model);
+    alert("Merci d'avoir laissé un commentaire !");
+   //this.srvModel.save(model);
   }
 
  
