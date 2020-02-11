@@ -11,15 +11,19 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.dao.IDAOEtape;
 import fr.formation.dao.IDAOModele;
 import fr.formation.model.Modele;
 
 @Controller
 public class ModelesController {
-	
+
 	@Autowired
 	private IDAOModele daoModele;
-	
+
+	@Autowired
+	private IDAOEtape daoEtape;
+
 	@GetMapping("/listeModeles")
 	public String findAll(Model model) {
 		model.addAttribute("modeles", daoModele.findAll());

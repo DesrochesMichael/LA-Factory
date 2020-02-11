@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Liste des modèles existant</title>
 <meta name="description"
 	content="Dépensez ici votre argent en toute impunité." />
 <meta charset="UTF-8" />
@@ -11,103 +10,49 @@
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous" />
 
-
-<meta name="viewport" content="width=devide-width, initial-scale=1" />
+<title>LA-Factory modele</title>
 
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarTogglerDemo03"
-			aria-controls="navbarTogglerDemo03" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<a class="navbar-brand">LA-Factory</a>
-
-		<div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-				<li class="nav-item active"><a class="nav-link"
-					href="view/menuPrincipal.html">Menu Principal</a></li>
-				<li class="nav-item"><a class="nav-link"
-					href="view/listeModeles.html">Liste des modèles<span
-						class="sr-only">(current)</span></a></li>
-				<li class="nav-item"><a class="nav-link" href="view/creer.html">Créer</a>
-				</li>
-			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Rechercher modèle" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Rechercher</button>
-			</form>
-		</div>
-	</nav>
-
+	<nav th:replace="navigation.html"></nav>
+	<h2>Les modèles disponibles</h2>
 	<div class="container">
-		<h1>Liste des modèles</h1>
+
+		<a th:href="@{ ajouterModele}" type="button" class="btn btn-info">Ajouter
+			un modèle</a>
+
 		<table class="table table-striped">
-			<thead>
+			<thead class="thead-dark">
 				<tr>
 					<th></th>
-					<th>ID</th>
-					<th>Niveau de difficulté</th>
-					<th>Temps de construction</th>
-					<th>Quantité de bois</th>
-					<th>Etapes</th>
-					<th>Note</th>
-					<th>Modèle activé sur site
-					<th></th>
-					<th></th>
+					<th scope="col">ID</th>
+					<th scope="col">Niveau de difficulté</th>
+					<th scope="col">Temps de construction</th>
+					<th scope="col">Quantité de bois</th>
+					<th scope="col">Etapes</th>
+					<th scope="col">Note</th>
+					<th scope="col">Modèle activé sur site
+					<th>
 				</tr>
 			</thead>
 
 			<tbody>
 				<tr th:each="modele : ${ modeles }">
-					<td><b>[[${ modele.nom }]]</b></td>
-					<td>[[${ modele.id }]]</td>
-					<td>[[${ modele.niveau }]]</td>
-					<td>[[${ modele.temps }]] minutes</td>
-					<td>[[${ modele.bois}]] bûches</td>
-					<td></td>
-					<td></td>
-					<td th:if="${modele?.activation == true }"> <a th:href="@{ swipe(id=${ modele.id })  }" type="button" class="btn btn-success"><b>Oui</b></a> <b>Non</b> </td>
-					<td th:if="${modele?.activation == false }"> <b>Oui</b> <a th:href="@{ swipe(id=${ modele.id })  }" type="button" class="btn btn-danger"><b>Non</b></a> </td>
-					<td th:if="${modele?.activation == null}"> <b>Oui</b> <a th:href="@{ swipe(id=${ modele.id })  }" type="button" class="btn btn-danger"><b>Non</b></a> </td>
-					<th><a th:href="@{ editerModele(id=${ modele.id })  }"type="button" class="btn btn-primary">Editer</a></th>
-					<th><a th:href="@{ deleteModele(id=${ modele.id })  }"  type="button" class="btn btn-danger">Supprimer</a>
-					</th>
+					<td scope="row"><b>[[${ modele.nom }]]</b></td>
+					<td scope="row">[[${ modele.id }]]</td>
+					<td scope="row">[[${ modele.niveau }]]</td>
+					<td scope="row">[[${ modele.temps }]]</td>
+					<td scope="row">[[${ modele.bois}]]</td>
+					<td scope="row"></td>
+					<td scope="row"></td>
+					<td scope="row" th:if="${modele?.activation == true }">Oui</td>
+					<td scope="row" th:if="${modele?.activation == false }">Non</td>
+					<td scope="row" th:if="${modele?.activation == null}">Aucune
+						donnée</td>
 				</tr>
 			</tbody>
 		</table>
-		<div class="container">
-			<form method= "POST">
-				<div class="input">
-					<label>Nom du modèle: </label> 
-					<input type="text" name="nom" th:value="${ modele?.nom }" />
-				</div>
-				<div class="input">
-					<label>Niveau de difficulté du modèle: </label> 
-				 	<select name = "niveau">
-				 		<option th:value = "Normal">Normal</option>
-				 		<option th:value = "Avance">Avancé</option>
-				 		<option th:value = "Expert">Expert</option>
-				 	</select>
-				</div>
-				<div class="input">
-					<label>Temps de construction du modèle: </label> 
-					<input type="number" name="temps" th:value="${ modele?.temps }" />
-				</div>
-				<div class="input">
-					<label>Quantité de bûche nécessaires: </label> 
-					<input type="number" name="bois" th:value="${ modele?.bois }" />
-				</div>
-				<div>
-					<button th:if="${ modele?.id == null }" type="submit" class="btn btn-primary">Ajouter</button>
-					<button th:if="${ modele?.id != null }" type="submit" class="btn btn-primary">Editer</button>
-				</div>
-			</form>
-		</div>
 	</div>
 
 

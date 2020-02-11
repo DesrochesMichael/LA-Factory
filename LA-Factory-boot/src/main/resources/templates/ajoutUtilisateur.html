@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>LA-Factory</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	crossorigin="anonymous">
+<meta charset="utf-8">
+</head>
+<body>
+	<form method="post">
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Nom :</span>
+			</div>
+			<input type="text" name="nom" th:value="${utilisateur?.nom}">
+		</div>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Prenom :</span>
+			</div>
+			<input type="text" name="prenom" th:value="${utilisateur?.prenom}">
+		</div>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Mail :</span>
+			</div>
+			<input type="text" name="mail" th:value="${utilisateur?.mail}">
+		</div>
+		
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Role :</span>
+			</div>
+			<input type="text" name="role" th:value="${utilisateur?.role}">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Password :</span>
+			</div>
+			<input type="text" name="password"
+				th:value="${utilisateur?.password}">
+		</div>
+
+
+
+		<div>
+			<button class="btn btn-success" type="submit"
+				th:if="${utilisateur.id==0}">add me !</button>
+			<button class="btn btn-info" type="submit"
+				th:if="${utilisateur.id!=0}">mod me !</button>
+		</div>
+	</form>
+</body>
+</html>

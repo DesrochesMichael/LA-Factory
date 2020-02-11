@@ -43,6 +43,7 @@ public class HomeController {
 			int monId = daoUtilisateur.findByMailAndPassword(user.getMail(), user.getPassword()).get().getId();
 			session.setAttribute("user", user.getNom());
 			session.setAttribute("userId", monId);
+			session.setAttribute("userRole", user.getRole());
 			return "redirect:menuPrincipal";
 		}
 	}
@@ -50,6 +51,11 @@ public class HomeController {
 	@GetMapping("/menuPrincipal")
 	public String goMenu() {
 		return "menuPrincipal";
+	}
+	
+	@GetMapping("/creation")
+	public String creation() {
+		return "creation";
 	}
 
 }

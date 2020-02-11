@@ -3,18 +3,53 @@
 <div class="container">
     <div class="py-5 text-center">
      
-      <h2>Résultats pour : "{{terme}}"</h2>
-      <p class="lead">!!!!!!!!!!!!!!!!!!!!!!!!! ICI Résulats de la recherche ICI !!!!!!!!!!!!!!!!!!!!!! </p>
+       <h2 *ngIf="srvModel.models.length == 0">Aucun résultat pour "{{nom}}"</h2>
+       <h2 *ngIf="srvModel.models.length > 0">Résultats pour : "{{nom}}"</h2>
+
+      <div class="col-md-12">
+        <!-- <iframe style="width: 100%" src="http://localhost:4200/listemodele"></iframe> -->
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>  </th>
+                    <th> CODE </th>
+                    <th> NOM DU MODELE </th>
+                    <th> TEMPS DE REALISATION </th>
+                    <th> NIVEAU </th>
+                    <th> NOTE </th>
+                    <th>  </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let m of srvModel.models">
+                    <td> <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg">  </td>
+                    <td> {{m.id}} </td>
+                    <td> {{m.nom}} </td>
+                    <td> {{m.temps}} min </td>
+                    <td> {{m.niveau}} </td>
+                    <td> {{m.note}} </td>
+                    <td> <a class="btn btn-warning" [routerLink]="['/modele', m.id]"> Lien vers le modèle </a> </td>
+                </tr>
+            </tbody>
+        
+        </table>
+      </div>
+    
     </div>
   
+
+    
+
     <div class="row">
       
       <div class="col-md-12">
         <h4 class="mb-3">Recherche avancée</h4>
-        <form >
-       
-  
-          <div class="mb-3">
+        
+
+        
+        
+        <form>
+         <div class="mb-3">
             <div class="input-group">
               <div class="input-group-prepend">
                 <span class="input-group-text">Nom du modèle

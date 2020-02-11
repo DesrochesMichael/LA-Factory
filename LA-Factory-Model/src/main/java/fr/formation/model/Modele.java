@@ -25,6 +25,7 @@ import fr.formation.model.Etape;
 import fr.formation.model.Niveau;
 import fr.formation.model.Note;
 import fr.formation.views.Views;
+import fr.formation.views.Views;
 
 @Table
 @Entity
@@ -52,7 +53,7 @@ public class Modele {
 	private int bois;
 	
 	@OneToMany(mappedBy="modele")
-	@JsonView(Views.ModeleWithEtapes.class)
+	@JsonView({Views.Modele.class, Views.Etape.class})
 	private List<Etape> etapes;
 	
 	@OneToMany(mappedBy="modele")

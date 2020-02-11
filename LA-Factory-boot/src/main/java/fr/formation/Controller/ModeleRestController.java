@@ -2,6 +2,7 @@ package fr.formation.Controller;
 
 import java.util.List;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.annotation.JsonView;
@@ -39,14 +41,23 @@ public class ModeleRestController {
 	@GetMapping("/findid/{id}")
 	@JsonView(Views.Modele.class)
 	public Modele findById(@PathVariable int id) {
-
-		return daoModele.findById(id).get();
+		Modele m = daoModele.findById(id).get();
+		Hibernate.initialize(m.getEtapes());
+		
+		return m;
+		
 	}
 	
 	@GetMapping("/findcategorie/{categorie}")
 	@JsonView(Views.Modele.class)
 	public List<Modele> findByCategorie(@PathVariable String categorie) {
 		return daoModele.findByCategorie(categorie);
+	}
+	
+	@GetMapping("/findnom/{nom}")
+	@JsonView(Views.Modele.class)
+	public List<Modele> findByNomContaining(@PathVariable String nom) {
+		return daoModele.findByNomContaining(nom);
 	}
 
 	@PutMapping("/{id}")
