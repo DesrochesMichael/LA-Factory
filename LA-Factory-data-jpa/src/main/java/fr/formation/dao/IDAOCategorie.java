@@ -1,6 +1,7 @@
 package fr.formation.dao;
 
 import java.util.List;
+<<<<<<< HEAD
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

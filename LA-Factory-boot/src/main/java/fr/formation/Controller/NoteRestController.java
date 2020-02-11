@@ -2,6 +2,7 @@ package fr.formation.Controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,12 +23,13 @@ public class NoteRestController {
 	@Autowired
 	IDAONote daoNote;
 
-//	
-//	@GetMapping
-//	public List<Note> get() {
-//		return daonote.findAll();
-//	}
-//
+	
+	@GetMapping
+	@JsonView(Views.Note.class)
+	public List<Note> get() {
+		return daoNote.findAll();
+	}
+
 //	@PutMapping("/{id}")
 //	public Note update(@RequestBody Note note) {
 //		daonote.save(note);
@@ -47,8 +49,8 @@ public class NoteRestController {
 //	}
 	
 	@GetMapping("/notemoyenne/{id}")
-	@JsonView(Views.Modele.class)
-	public void noteMoyenne(@PathVariable int id) {
+	@JsonView(Views.Note.class)
+	public float noteMoyenne(@PathVariable int id) {
 		List<Note> notes = daoNote.findByModeleId(id);
 		
 		float noteMoyenne = 0;
@@ -56,6 +58,10 @@ public class NoteRestController {
 		for(int i=0; i<notes.size(); i++) {
 			noteMoyenne = noteMoyenne + notes.get(i).getValeur();
 		}
+		
+		noteMoyenne = noteMoyenne/notes.size();
+		
+		return noteMoyenne;
 	}
 	
 }
