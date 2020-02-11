@@ -16,8 +16,7 @@ export class NoteService {
   public save(note: Note): void{
 
     this.http
-    .post<Note>(this.srvAppConfig.url+'/note', note, this.srvAppConfig.entete())
+    .post<Note>(this.srvAppConfig.url+'note', note, this.srvAppConfig.entete())
     .subscribe(resp => this.notes.push(resp));
-
 }
 }

@@ -4,8 +4,9 @@
 <div class="container">
     <div class="py-5 text-center">
         <div class="header">
+            <h3>&#183;</h3>
             <h2> {{srvModel.model.nom}}</h2>
-            <table class="table">
+            <table class="table borderless" id="tableau">
                 <thead>
                     <tr>
                         <th>TEMPS</th>
@@ -23,11 +24,12 @@
                     </tr>
                 </tbody>
             </table>
+            <h3>&#183;</h3>
         </div>
     </div>
     <div class="col-md-14">
         <div class="py-5 text-center">
-        <img src="https://static.alipson.fr/m120/p191120/p1_FULL.jpg"/>
+        <img src="https://images-na.ssl-images-amazon.com/images/I/71aRq-GJtoL._AC_SL1000_.jpg"/>
     </div>
 
     </div>
@@ -44,7 +46,7 @@
                     <th>Etape</th>
                     <th>Titre</th>
                     <th>Description</th>
-                    <th>Lien</th>
+                    <th>Video</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,24 +61,7 @@
 
     </div>
         <!-- 
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Note</th>
-                    <th>Commentaire</th>
-                    <th>Prenom</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let n of srvModel.model.notes">
-                    <td>{{n.valeur}}</td>
-                    <td>{{n.Commentaire}}</td>
-                    <td>{{n.prenom}}</td>
-                </tr>
-            </tbody>
-        </table>
-
-      </div>
+        
 -->
       <hr class="mb-4">
         <h4 class="mb-3">Donnez votre avis !</h4>
@@ -137,8 +122,29 @@
        
        
         <hr class="mb-4">
-        <button class="btn btn-warning btn-lg btn-block" (click)="ajouterIdee(idee)">Notez ce modele</button>
+        <button class="btn btn-warning btn-lg btn-block" (click)="ajouterNote(note, srvModel)">Notez ce modele</button>
       </form>
 
+      <hr class="mb-4">
+
+      <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Prenom</th>
+                <th>Note</th>
+                <th>Commentaire</th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let n of srvModel.model.notes">
+                <td>{{n.prenom}}</td>
+                <td>{{n.valeur}}</td>
+                <td>{{n.commentaire}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+  </div>
     
 </div>

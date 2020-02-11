@@ -1,5 +1,5 @@
 .header{
-    background-image: url("https://i.imgur.com/tXEeh0R.jpg");
+    background-image: url("https://i.imgur.com/xoXfWve.jpg");
     background-size: cover;
     background-position: center;
     border-radius: 25px;
@@ -9,6 +9,15 @@
   }
 
   img {
-    max-width: 100%;
+    max-width: 50%;
     
+}
+
+#tableau{
+    color: white;
+ 
+}
+
+.borderless td, .borderless th {
+    border: none;
 }
