@@ -14,7 +14,7 @@ export class ListModelCategorieComponent implements OnInit {
   private categories= Array<Categorie>();
   constructor(private route: ActivatedRoute, private srvModel: CRUDModelService, private srvCategorie: CRUDCategorieService) { 
     this.route.params.subscribe(params =>{
-      this.srvCategorie.findByCategorie(params.id)
+      this.srvCategorie.findByCategorie(params.id);
     });
   }
 
