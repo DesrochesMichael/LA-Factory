@@ -82,16 +82,18 @@
 
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
-						<span class="input-group-text" id="basic-addon3">Catégorie
-							:</span>
+						<span class="input-group-text" id="basic-addon3">Catégories du modèle :</span>
 					</div>
-					<select name="categorie">
-						<option value="null">Pas de categorie</option>
-						<option th:each="cat : ${categories}" th:value="${ cat.nom }"
-							th:text="${ cat.nom }"></option>
+					
+					<select name="categories">
+						<option th:each="categorie : ${listeCategories}"
+								th:value="${categorie.id}"
+								th:text="${ categorie.nom }"
+								th:selected="${ categorie.id ==modele?.categories?.id }">
+						</option>
 					</select>
 				</div>
-
+				
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon3">Niveau de
@@ -99,7 +101,7 @@
 					</div>
 
 					<select name="niveau">
-						<option th:value="Normal">Normal</option>
+						<option th:value="Normal" >Normal</option>
 						<option th:value="Avance">Avancé</option>
 						<option th:value="Expert">Expert</option>
 					</select>
@@ -120,7 +122,7 @@
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon3">Quantité
-							de bûche nécessaires:</span>
+							de bûches nécessaires:</span>
 					</div>
 					<input type="text" name="bois" th:value="${ modele?.bois }" />
 				</div>

@@ -54,7 +54,9 @@ public class ModelesController {
 			}
 			daoModele.saveAll(modelesMAJ);
 		}
-		model.addAttribute("categories", daoCategorie.findAll());
+
+		List<Categorie> categories = daoCategorie.findAll();
+		model.addAttribute("listeCategories", categories);
 		return "listeModeles";
 	}
 
