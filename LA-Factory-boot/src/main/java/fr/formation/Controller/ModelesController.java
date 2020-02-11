@@ -1,11 +1,11 @@
 package fr.formation.Controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,26 +31,25 @@ public class ModelesController {
 	@GetMapping("/listeModeles")
 	public String findAll(Model model) {
 
-		List<Modele> modeles = daoModele.findAll();
-		model.addAttribute("modeles", modeles);
-		for (Modele m : modeles) {
-			float res = 0;
-			int tot = 0;
-			List<Note> notes = m.getNotes();
-			if (notes != null) {
-				int i = notes.size();
-				for (Note n : notes) {
-					tot = tot + n.getValeur();
-				}
-				res = (float) tot / i;
-				m.setNoteMoy(res);
-				daoModele.save(m);
-			}
-		}
+		model.addAttribute("modeles", daoModele.findAll());
+//		for (Modele m : modeles) {
+//			float res = 0;
+//			int tot = 0;
+//			List<Note> notes = m.getNotes();
+//			if (notes != null) {
+//				int i = notes.size();
+//				for (Note n : notes) {
+//					tot = tot + n.getValeur();
+//				}
+//				res = (float) tot / i;
+//				m.setNoteMoy(res);
+//				daoModele.save(m);
+//			}
+//		}
 
 		return "listeModeles";
 	}
-	
+
 	@PostMapping("/listeModeles")
 	public String addModele(@ModelAttribute Modele modele) {
 		daoModele.save(modele);
