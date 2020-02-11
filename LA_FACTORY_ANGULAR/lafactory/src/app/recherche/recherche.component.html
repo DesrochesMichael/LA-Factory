@@ -1,10 +1,14 @@
 <body class="bg-light">
 
 <div class="container">
-    <div class="py-5 text-center">
+    <div class="py-5 text-center">  
+      <div class="header">
+
+        <h2 *ngIf="srvModel.models.length == 0">Aucun résultat pour "{{nom}}"</h2>
+        <h2 *ngIf="srvModel.models.length > 0">Résultats pour : "{{nom}}"</h2>
+
+      </div>
      
-       <h2 *ngIf="srvModel.models.length == 0">Aucun résultat pour "{{nom}}"</h2>
-       <h2 *ngIf="srvModel.models.length > 0">Résultats pour : "{{nom}}"</h2>
 
       <div class="col-md-12">
         <!-- <iframe style="width: 100%" src="http://localhost:4200/listemodele"></iframe> -->

@@ -11,3 +11,13 @@ table td
     text-align: center; 
     vertical-align: middle;
 }
+
+.header{
+  background-image: url("https://i.imgur.com/tXEeh0R.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 25px;
+  color: white;
+  text-shadow: #000000 10px 0 10px;
+
+}
