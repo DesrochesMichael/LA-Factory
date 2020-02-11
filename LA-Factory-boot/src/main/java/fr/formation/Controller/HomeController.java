@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.formation.dao.IDAOUtilisateur;
 import fr.formation.model.Utilisateur;
@@ -33,19 +34,25 @@ public class HomeController {
 	
 	@PostMapping("/connexion")
 	public String connexion(@Valid @ModelAttribute Utilisateur user,
+			@RequestParam String mail,
+			@RequestParam String password,
 			HttpSession session
 			) {
-		if( daoUtilisateur.findByMailAndPassword(user.getMail(), user.getPassword()).orElse(null) == null ) {
+		if( daoUtilisateur.findByMailAndPassword(mail, password).orElse(null) == null ) {
 			System.out.println("Vous avez entre un mot de passe ou email erronne");
 			return "connexion";
 		}
 		else {
-			int monId = daoUtilisateur.findByMailAndPassword(user.getMail(), user.getPassword()).get().getId();
+			int monId = daoUtilisateur.findByMailAndPassword(mail, password).get().getId();
 			session.setAttribute("user", user.getNom());
 			session.setAttribute("userId", monId);
 			session.setAttribute("userRole", user.getRole());
 			return "redirect:menuPrincipal";
 		}
+//		session.setAttribute("user", user.getNom());
+//		session.setAttribute("userId", monId);
+//		session.setAttribute("userRole", user.getRole());
+//		return "redirect:menuPrincipal";
 	}
 	
 	@GetMapping("/menuPrincipal")
