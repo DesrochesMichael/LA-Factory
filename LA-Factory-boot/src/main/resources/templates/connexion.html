@@ -22,11 +22,6 @@
 <body>
 <form id="connexion" action="performLogin" method="POST" class="form-group">
 <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"></input>
-	<div class="form-group">
-		<label for="email">Email</label>
-		<input class="form-control" type="email" name="mail" placeholder="email" required />
-	<h1 class="mx-auto">Acces a l'outil de gesion de LA Factory</h1>
-
 	<div class="container">
 		<form id="connexion" method="POST" class="form-group">
 			<div class="input-group mb-3">
