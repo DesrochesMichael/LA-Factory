@@ -128,13 +128,7 @@ public class Modele {
 		return bois;
 	}
 
-	public float getNoteMoy() {
-		return noteMoy;
-	}
 
-	public void setNoteMoy(float noteMoy) {
-		this.noteMoy = noteMoy;
-	}
 
 	public void setBois(int bois) {
 		this.bois = bois;
