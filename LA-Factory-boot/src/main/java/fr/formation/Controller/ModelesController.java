@@ -1,13 +1,12 @@
 package fr.formation.Controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,24 +34,26 @@ public class ModelesController {
 
 		List<Modele> modeles = daoModele.findAll();
 		model.addAttribute("modeles", modeles);
+		List<Modele> modelesMAJ = new ArrayList<Modele>();
 		for (Modele m : modeles) {
 			float res = 0;
 			int tot = 0;
 			List<Note> notes = m.getNotes();
-			if (notes != null) {
+			if (notes.size() > 0) {
 				int i = notes.size();
 				for (Note n : notes) {
 					tot = tot + n.getValeur();
 				}
-				res = (float) tot / i;
+				res = (float)tot / (float) i;
 				m.setNoteMoy(res);
-				daoModele.save(m);
+				modelesMAJ.add(m);	
 			}
+		daoModele.saveAll(modelesMAJ);
 		}
 
 		return "listeModeles";
 	}
-	
+
 	@PostMapping("/listeModeles")
 	public String addModele(@ModelAttribute Modele modele) {
 		daoModele.save(modele);

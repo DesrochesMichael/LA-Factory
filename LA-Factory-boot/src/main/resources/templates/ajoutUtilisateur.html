@@ -9,6 +9,9 @@
 <meta charset="utf-8">
 </head>
 <body>
+
+	<nav th:replace="navigation.html"></nav>
+		<h2>Ajout d'un utilisateur</h2>
 	<form method="post">
 
 		<div class="input-group mb-3">
@@ -17,30 +20,30 @@
 			</div>
 			<input type="text" name="nom" th:value="${utilisateur?.nom}">
 		</div>
-		
+
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Prenom :</span>
 			</div>
 			<input type="text" name="prenom" th:value="${utilisateur?.prenom}">
 		</div>
-		
+
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Mail :</span>
 			</div>
 			<input type="text" name="mail" th:value="${utilisateur?.mail}">
 		</div>
-		
+
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Role :</span>
 			</div>
-    		<select name="role" th:value="${utilisateur?.role}">
-      			<option>TECH</option>
-      			<option>ADMIN</option>
-    		</select>
-  		</div>
+			<select name="role" th:value="${utilisateur?.role}">
+				<option>TECH</option>
+				<option>ADMIN</option>
+			</select>
+		</div>
 
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
