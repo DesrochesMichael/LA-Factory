@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import fr.formation.dao.IDAOCategorie;
 import fr.formation.dao.IDAOEtape;
 import fr.formation.dao.IDAOModele;
+import fr.formation.model.Categorie;
 import fr.formation.model.Modele;
 import fr.formation.model.Note;
 
@@ -51,6 +52,8 @@ public class ModelesController {
 		daoModele.saveAll(modelesMAJ);
 		}
 
+		List<Categorie> categories = daoCategorie.findAll();
+		model.addAttribute("listeCategories", categories);
 		return "listeModeles";
 	}
 
