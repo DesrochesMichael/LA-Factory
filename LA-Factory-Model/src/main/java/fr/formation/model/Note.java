@@ -1,5 +1,6 @@
 package fr.formation.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+
+import org.springframework.transaction.annotation.Transactional;
 
 import com.fasterxml.jackson.annotation.JsonView;
 
@@ -46,7 +49,7 @@ public class Note {
 	@JsonView(Views.Note.class)
 	private int valeur;
 	
-	@ManyToOne
+	@ManyToOne(cascade= {CascadeType.MERGE})
 	@JoinColumn(name = "note_modele")
 	@JsonView(Views.Note.class)
 	private Modele modele;
@@ -105,6 +108,10 @@ public class Note {
 
 	public void setModele(Modele modele) {
 		this.modele = modele;
+	}
+
+	public Note() {
+		
 	}
 	
 
