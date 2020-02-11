@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import fr.formation.model.Etape;
 import fr.formation.model.Modele;
 
 public interface IDAOModele extends JpaRepository<Modele, Integer> {

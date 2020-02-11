@@ -10,12 +10,26 @@
 </head>
 
 <body>
+<h2>Catégorie des différents modèles</h2>
+
+<div class="container">
+	<table class="table table-striped">
+	
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Id</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Parent</th>
+			</tr>
 
 	<nav th:replace="navigation.html"></nav>
 	<h2>Catégorie des différents modèles</h2>
 
-	<div class="container">
-		<table class="table table-striped">
+			<tr th:each="categorie: ${categories}">
+				<td scope="row" th:text="${categorie.id}"></td>
+				<td scope="row" th:text="${categorie.nom}"></td>
+				<td scope="row" th:if="${categorie.parent == null}" >Pas de parent</td>
+				<td scope="row" th:if="${categorie.parent != null}" th:text="${categorie.parent.nom}"></td>
 
 			<thead class="thead-dark">
 				<tr>

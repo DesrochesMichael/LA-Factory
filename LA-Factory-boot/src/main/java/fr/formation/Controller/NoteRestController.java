@@ -48,20 +48,6 @@ public class NoteRestController {
 //		daonote.deleteById(id);
 //	}
 	
-	@GetMapping("/notemoyenne/{id}")
-	@JsonView(Views.Note.class)
-	public float noteMoyenne(@PathVariable int id) {
-		List<Note> notes = daoNote.findByModeleId(id);
-		
-		float noteMoyenne = 0;
-		
-		for(int i=0; i<notes.size(); i++) {
-			noteMoyenne = noteMoyenne + notes.get(i).getValeur();
-		}
-		
-		noteMoyenne = noteMoyenne/notes.size();
-		
-		return noteMoyenne;
-	}
+
 	
 }

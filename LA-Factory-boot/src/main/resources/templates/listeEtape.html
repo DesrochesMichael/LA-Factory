@@ -46,17 +46,63 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
 
+	<form method="post">
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Titre :</span>
+			</div>
+			<input type="text" name="titre" th:value="${etape?.titre}"
+				aria-describedby="basic-addon3">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Description
+					:</span>
+			</div>
+			<input type="text" name="description"
+				th:value="${etape?.description}" aria-describedby="basic-addon3">
+		</div>
+
+
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Numéro :</span>
+			</div>
+			<input type="text" name="numero" th:value="${etape?.numero}">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Lien :</span>
+			</div>
+			<input type="text" name="lien" th:value="${etape?.lien}">
+		</div>
+
+		<div class="input-group mb-3">
+			<div class="input-group-prepend">
+				<span class="input-group-text" id="basic-addon3">Modele :</span>
+			</div>
+			<select name="modele.id">
+				<option th:each="modele : ${ modeles }" th:value="${ modele.id }"
+					th:text="${ modele.nom }"
+					th:selected="${ modele.id == etape?.modele?.id }" />
+			</select>
+		</div>
 
 		<form method="post">
 
-			<div class="input-group mb-3">
-				<div class="input-group-prepend">
-					<span class="input-group-text" id="basic-addon3">Titre :</span>
-				</div>
-				<input type="text" name="titre" th:value="${etape?.titre}"
-					aria-describedby="basic-addon3">
-			</div>
+		<div>
+			<button class="btn btn-success" type="submit" th:if="${etape.id==0}">add
+				me !</button>
+			<button class="btn btn-info" type="submit" th:if="${etape.id!=0}">mod
+				me !</button>
+		</div>
+	</form>
 
 			<div class="input-group mb-3">
 				<div class="input-group-prepend">
