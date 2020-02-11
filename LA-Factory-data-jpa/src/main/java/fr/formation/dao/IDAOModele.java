@@ -13,4 +13,7 @@ public interface IDAOModele extends JpaRepository<Modele, Integer> {
 	@Query("select m from Modele m inner join fetch m.categories c where c.nom = :nom")
 	List<Modele> findByCategorie(@Param("nom") String nom);
 	List<Modele> findByNomContaining(String nom);
+	
+	@Query("select m from Modele m inner join fetch m.categories")
+	List<Modele> findAllFetchingCategories();
 }
