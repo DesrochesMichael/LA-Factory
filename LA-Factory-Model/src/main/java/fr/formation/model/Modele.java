@@ -77,14 +77,6 @@ public class Modele {
 	@JsonView(Views.ModeleWithNotes.class) 
 	private float noteMoy; 
 
-	public float getNoteMoy() {
-		return noteMoy;
-	}
-
-	public void setNoteMoy(float noteMoy) {
-		this.noteMoy = noteMoy;
-	}
-
 	public int getId() {
 		return id;
 	}

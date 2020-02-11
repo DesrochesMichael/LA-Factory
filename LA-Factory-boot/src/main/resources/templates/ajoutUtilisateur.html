@@ -36,8 +36,11 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Role :</span>
 			</div>
-			<input type="text" name="role" th:value="${utilisateur?.role}">
-		</div>
+    		<select name="role" th:value="${utilisateur?.role}">
+      			<option>TECH</option>
+      			<option>ADMIN</option>
+    		</select>
+  		</div>
 
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
