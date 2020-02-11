@@ -26,6 +26,17 @@ public class Idee {
 	
 	@Column(name = "idee_message", length = 500, nullable = false)
 	private String message;
+	
+	@Column(name = "idee_archive", columnDefinition = "boolean default false")
+	private Boolean archive = false;
+
+	public Boolean getArchive() {
+		return archive;
+	}
+
+	public void setArchive(Boolean archive) {
+		this.archive = archive;
+	}
 
 	public int getId() {
 		return id;

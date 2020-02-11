@@ -17,6 +17,7 @@
 		</div>
 		<div>
 			parent : <select name="parent" class="form-control">
+						<option value ="0">Pas de parent</option>
 						<option th:each="cat : ${categories}"
 								th:value="${ cat.id }" 
 								th:text="${ cat.nom }">

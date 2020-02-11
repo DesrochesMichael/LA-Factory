@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,41 +20,39 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 import fr.formation.dao.IDAOModele;
 import fr.formation.model.Modele;
+import fr.formation.model.Note;
 import fr.formation.views.Views;
-
 
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/api/modele")
 public class ModeleRestController {
-	
+
 	@Autowired
 	private IDAOModele daoModele;
 
-	
 	@GetMapping
 	@JsonView(Views.Modele.class)
 	public List<Modele> get() {
 
 		return this.daoModele.findAll();
 	}
-	
+
 	@GetMapping("/findid/{id}")
-	@JsonView(Views.Modele.class)
+	@JsonView(Views.ModeleWithNotes.class)
 	public Modele findById(@PathVariable int id) {
 		Modele m = daoModele.findById(id).get();
 		Hibernate.initialize(m.getEtapes());
-		
 		return m;
-		
+
 	}
-	
+
 	@GetMapping("/findcategorie/{categorie}")
 	@JsonView(Views.Modele.class)
 	public List<Modele> findByCategorie(@PathVariable String categorie) {
 		return daoModele.findByCategorie(categorie);
 	}
-	
+
 	@GetMapping("/findnom/{nom}")
 	@JsonView(Views.Modele.class)
 	public List<Modele> findByNomContaining(@PathVariable String nom) {

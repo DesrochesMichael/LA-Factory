@@ -16,6 +16,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.lang.Nullable;
+
 import com.fasterxml.jackson.annotation.JsonView;
 
 import fr.formation.model.Categorie;
@@ -70,6 +72,18 @@ public class Modele {
 	        inverseJoinColumns = @JoinColumn(name = "cat_id"))
 	@JsonView(Views.ModeleWithCategories.class)
 	private Set<Categorie> categories;
+	
+	@Column(name = "modele_note_moy") 
+	@JsonView(Views.ModeleWithNotes.class) 
+	private float noteMoy = 0; 
+
+	public float getNoteMoy() {
+		return noteMoy;
+	}
+
+	public void setNoteMoy(float noteMoy) {
+		this.noteMoy = noteMoy;
+	}
 
 	public int getId() {
 		return id;
