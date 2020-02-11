@@ -30,7 +30,6 @@
 					<th>Niveau de difficulté</th>
 					<th>Temps de construction</th>
 					<th>Quantité de bois</th>
-					<th>Etapes</th>
 					<th>Note</th>
 					<th>Modèle activé sur site
 					<th></th>
@@ -39,7 +38,8 @@
 			</thead>
 			<tbody>
 				<tr th:each="modele : ${ modeles }">
-					<td><b><a th:href="@{ModeleEtape(id=${ modele.id })}">[[${ modele.nom }]]</b></td>
+					<td><b><a th:href="@{ModeleEtape(id=${ modele.id })}">[[${
+								modele.nom }]]</b></td>
 					<td>[[${ modele.id }]]</td>
 					<td>
 						<ul th:each="categorie : ${ modele.categories }">
@@ -52,8 +52,7 @@
 					<td>[[${ modele.niveau }]]</td>
 					<td>[[${ modele.temps }]] minutes</td>
 					<td>[[${ modele.bois}]] bûches</td>
-					<td></td>
-					<td></td>
+					<td>[[${ modele.noteMoy}]]</td>
 					<td th:if="${modele?.activation == true }"><a
 						th:href="@{ swipe(id=${ modele.id })  }" type="button"
 						class="btn btn-success"><b>Oui</b></a> <b>Non</b></td>
@@ -83,6 +82,18 @@
 
 				<div class="input-group mb-3">
 					<div class="input-group-prepend">
+						<span class="input-group-text" id="basic-addon3">Catégorie
+							:</span>
+					</div>
+					<select name="categorie">
+						<option value="null">Pas de categorie</option>
+						<option th:each="cat : ${categories}" th:value="${ cat.nom }"
+							th:text="${ cat.nom }"></option>
+					</select>
+				</div>
+
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
 						<span class="input-group-text" id="basic-addon3">Niveau de
 							difficulté du modèle:</span>
 					</div>
@@ -101,7 +112,7 @@
 							construction du modèle:</span>
 					</div>
 
-					<input type="number" name="temps" th:value="${ modele?.temps }" />
+					<input type="text" name="temps" th:value="${ modele?.temps }" />
 				</div>
 
 
@@ -111,7 +122,7 @@
 						<span class="input-group-text" id="basic-addon3">Quantité
 							de bûche nécessaires:</span>
 					</div>
-					<input type="number" name="bois" th:value="${ modele?.bois }" />
+					<input type="text" name="bois" th:value="${ modele?.bois }" />
 				</div>
 
 				<div>
