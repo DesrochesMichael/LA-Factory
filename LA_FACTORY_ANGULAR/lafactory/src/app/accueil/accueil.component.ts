@@ -29,4 +29,8 @@ export class AccueilComponent implements OnInit {
     this.router.navigate(['/listemodelecategorie', categorie]);
   }
 
+  public rechercheCategorie(categorie: String): void {
+    this.router.navigate(['/listemodelecategorie', categorie]);
+  }
+
 }
