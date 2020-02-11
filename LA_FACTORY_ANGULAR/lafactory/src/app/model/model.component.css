@@ -1,0 +1,14 @@
+.header{
+    background-image: url("https://i.imgur.com/tXEeh0R.jpg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 25px;
+    color: white;
+    text-shadow: #000000 10px 0 10px;
+  
+  }
+
+  img {
+    max-width: 100%;
+    
+}

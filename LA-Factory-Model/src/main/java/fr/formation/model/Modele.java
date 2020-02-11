@@ -60,6 +60,9 @@ public class Modele {
 	@JsonView(Views.ModeleWithNotes.class)
 	private List<Note> notes;
 	
+	@Column(name="modele_img")
+	private String image;
+	
 	@Column(name = "modele_activ")
 	@JsonView(Views.Modele.class)
 	private Boolean activation;
@@ -81,7 +84,16 @@ public class Modele {
 		this.id = id;
 	}
 
+	
 
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
 
 	public String getNom() {
 		return nom;
