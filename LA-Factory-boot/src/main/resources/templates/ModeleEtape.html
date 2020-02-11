@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>LA-Factory étapes</title>
+<title>LA-Factory</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -11,8 +11,7 @@
 
 <body>
 	<nav th:replace="navigation.html"></nav>
-	<h2>Liste de toutes les étapes.</h2>
-
+	<h1>Nom du modèle : [[${modele.nom}]]</h1>
 	<div class="container">
 		<table class="table table-striped">
 			<thead class="thead-dark">
@@ -21,7 +20,6 @@
 					<th scope="col">Description</th>
 					<th scope="col">Numero</th>
 					<th scope="col">Lien</th>
-					<th scope="col">Nom du modèle</th>
 					<th scope="col"></th>
 					<th scope="col"></th>
 				</tr>
@@ -29,19 +27,19 @@
 			</thead>
 			<tbody>
 
-				<tr th:each="etape: ${etapes}">
-					<td scope="row" th:text="${etape.titre}"></td>
-					<td scope="row" th:text="${etape.description}"></td>
-					<td scope="row" th:text="${etape.numero}"></td>
-					<td scope="row" th:text="${etape.lien}"></td>
-					<td scope="row" th:text="${etape?.modele?.nom}"></td>
+				<tr th:each="eta: ${etapes}">
+					<td scope="row" th:text="${eta.titre}"></td>
+					<td scope="row" th:text="${eta.description}"></td>
+					<td scope="row" th:text="${eta.numero}"></td>
+					<td scope="row" th:text="${eta.lien}"></td>
+
 
 
 
 					<td><a class="btn btn-warning"
-						th:href="@{editEtape(id=${etape.id})}"> Editer</a></td>
+						th:href="@{editModeleEtape(id=${eta.id})}"> Editer</a></td>
 					<td><a class="btn btn-danger"
-						th:href="@{supEtape(id=${etape.id})}"> Supprimer</a></td>
+						th:href="@{supModeleEtape(id=${eta.id})}"> Supprimer</a></td>
 
 				</tr>
 			</tbody>
@@ -50,11 +48,13 @@
 
 	<form method="post">
 
+
+
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Titre :</span>
 			</div>
-			<input type="text" name="titre" th:value="${etape?.titre}"
+			<input type="text" name="titre" th:value="${etape.titre}"
 				aria-describedby="basic-addon3">
 		</div>
 
@@ -63,8 +63,8 @@
 				<span class="input-group-text" id="basic-addon3">Description
 					:</span>
 			</div>
-			<input type="text" name="description"
-				th:value="${etape?.description}" aria-describedby="basic-addon3">
+			<input type="text" name="description" th:value="${etape.description}"
+				aria-describedby="basic-addon3">
 		</div>
 
 
@@ -73,35 +73,26 @@
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Numéro :</span>
 			</div>
-			<input type="text" name="numero" th:value="${etape?.numero}">
+			<input type="text" name="numero" th:value="${etape.numero}"
+				aria-describedby="basic-addon3">
 		</div>
 
 		<div class="input-group mb-3">
 			<div class="input-group-prepend">
 				<span class="input-group-text" id="basic-addon3">Lien :</span>
 			</div>
-			<input type="text" name="lien" th:value="${etape?.lien}">
+			<input type="text" name="lien" th:value="${etape.lien}"
+				aria-describedby="basic-addon3">
 		</div>
 
-		<div class="input-group mb-3">
-			<div class="input-group-prepend">
-				<span class="input-group-text" id="basic-addon3">Modele :</span>
-			</div>
-			<select name="modele.id">
-				<option th:each="modele : ${ modeles }" th:value="${ modele.id }"
-					th:text="${ modele.nom }"
-					th:selected="${ modele.id == etape?.modele?.id }" />
-			</select>
-		</div>
 
 
 		<div>
-			<button class="btn btn-success" type="submit" th:if="${etape.id==0}">add
+			<button class="btn btn-success" type="submit" th:if="${etape?.id==0}">add
 				me !</button>
-			<button class="btn btn-info" type="submit" th:if="${etape.id!=0}">mod
+			<button class="btn btn-info" type="submit" th:if="${etape?.id!=0}">mod
 				me !</button>
 		</div>
 	</form>
-
 </body>
 </html>
