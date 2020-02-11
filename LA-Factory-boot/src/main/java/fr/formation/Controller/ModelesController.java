@@ -1,9 +1,6 @@
 package fr.formation.Controller;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.formation.dao.IDAOCategorie;
 import fr.formation.dao.IDAOEtape;
 import fr.formation.dao.IDAOModele;
 import fr.formation.model.Modele;
@@ -26,6 +24,9 @@ public class ModelesController {
 
 	@Autowired
 	private IDAOEtape daoEtape;
+
+	@Autowired
+	private IDAOCategorie daoCategorie;
 
 	@GetMapping("/listeModeles")
 	public String findAll(Model model) {
@@ -49,7 +50,7 @@ public class ModelesController {
 
 		return "listeModeles";
 	}
-
+	
 	@PostMapping("/listeModeles")
 	public String addModele(@ModelAttribute Modele modele) {
 		daoModele.save(modele);
