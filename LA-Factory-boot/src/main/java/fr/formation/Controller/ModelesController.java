@@ -14,6 +14,7 @@ import fr.formation.dao.IDAOCategorie;
 import fr.formation.dao.IDAOEtape;
 import fr.formation.dao.IDAOModele;
 import fr.formation.model.Modele;
+import fr.formation.model.Note;
 
 @Controller
 public class ModelesController {
@@ -29,13 +30,27 @@ public class ModelesController {
 
 	@GetMapping("/listeModeles")
 	public String findAll(Model model) {
-		model.addAttribute("modeles", daoModele.findAllFetchingCategories());
-		
+
+		List<Modele> modeles = daoModele.findAll();
+		model.addAttribute("modeles", modeles);
+		for (Modele m : modeles) {
+			float res = 0;
+			int tot = 0;
+			List<Note> notes = m.getNotes();
+			if (notes != null) {
+				int i = notes.size();
+				for (Note n : notes) {
+					tot = tot + n.getValeur();
+				}
+				res = (float) tot / i;
+				m.setNoteMoy(res);
+				daoModele.save(m);
+			}
+		}
+
 		return "listeModeles";
 	}
 	
-	
-
 	@PostMapping("/listeModeles")
 	public String addModele(@ModelAttribute Modele modele) {
 		daoModele.save(modele);
