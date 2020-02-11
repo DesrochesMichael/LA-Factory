@@ -30,16 +30,95 @@
 
     <section>
         <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Numéro d'ETAPE</th>
+                    <th>Description</th>
+                    <th>Lien</th>
+                </tr>
+            </thead>
             <tbody>
                 <tr *ngFor="let e of srvModel.model.etapes">
                     <td>{{e.numero}}</td>
                     <td>{{e.description}}</td>
+                    <td>{{e.lien}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Note</th>
+                    <th>Commentaire</th>
+                    <th>Prenom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let n of srvModel.model.notes">
+                    <td>{{n.valeur}}</td>
+                    <td>{{n.Commentaire}}</td>
+                    <td>{{n.prenom}}</td>
                 </tr>
             </tbody>
         </table>
     </section>
+    <section>
+    <form class="needs-validation" novalidate>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label>Prénom</label>
+            <input type="text" class="form-control" [(ngModel)]="note.prenom" name="prenom" placeholder="Michel"required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Nom</label>
+            <input type="text" class="form-control" [(ngModel)]="note.nom" name="nom" placeholder="Dupont" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
 
-  
+        
+
+        <div class="mb-3">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" [(ngModel)]="note.mail" name="mail" placeholder="adresse@email.fr" required>
+          <div class="invalid-feedback">
+            Please enter a valid email address for shipping updates.
+          </div>
+        </div>
+
+
+        <hr class="mb-4">
+        <h4 class="mb-3">Votre commentaire</h4>
+
+        <div class="mb-3">
+         
+            <textarea class="form-control" [(ngModel)]="note.commentaire" name="message" placeholder="Laissez votre commentaire" rows="4"></textarea>
+        </div>
+
+        <h4 class="mb-3">Votre note</h4>
+        <div class="mb-3">
+         
+            <select [(ngModel)]="note.valeur">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+        </div>
+       
+       
+        <hr class="mb-4">
+        <button class="btn btn-warning btn-lg btn-block" (click)="ajouterIdee(idee)">Notez ce modele</button>
+      </form>
+    </section>
     
     
 </main>
