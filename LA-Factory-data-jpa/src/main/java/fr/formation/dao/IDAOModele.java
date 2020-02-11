@@ -18,4 +18,6 @@ public interface IDAOModele extends JpaRepository<Modele, Integer> {
 	List<Modele> findAllFetchingCategories();
 	
 	Modele findByNom(String nom);
+	
+	List<Modele> findByActivation(boolean b);
 }

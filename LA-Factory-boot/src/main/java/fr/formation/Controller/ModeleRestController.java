@@ -31,11 +31,18 @@ public class ModeleRestController {
 	@Autowired
 	private IDAOModele daoModele;
 
+//	@GetMapping
+//	@JsonView(Views.Modele.class)
+//	public List<Modele> get() {
+//
+//		return this.daoModele.findAll();
+//	}
+	
 	@GetMapping
 	@JsonView(Views.Modele.class)
-	public List<Modele> get() {
+	public List<Modele> getActiver() {
 
-		return this.daoModele.findAll();
+		return this.daoModele.findByActivation(true);
 	}
 
 	@GetMapping("/findid/{id}")
@@ -76,4 +83,6 @@ public class ModeleRestController {
 	public void delete(@PathVariable int id) {
 		daoModele.deleteById(id);
 	}
+	
+
 }
