@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>LA-Factory</title>
+<title>LA-Factory catégories</title>
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
@@ -10,22 +10,26 @@
 </head>
 
 <body>
+<h2>Catégorie des différents modèles</h2>
+
+<div class="container">
 	<table class="table table-striped">
-		<thead>
+	
+		<thead class="thead-dark">
 			<tr>
-				<th>Id</th>
-				<th>Nom</th>
-				<th>Parent</th>
+				<th scope="col">Id</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Parent</th>
 			</tr>
 
 		</thead>
 		<tbody>
 
 			<tr th:each="categorie: ${categories}">
-				<td th:text="${categorie.id}"></td>
-				<td th:text="${categorie.nom}"></td>
-				<td th:if="${categorie.parent == null}" >Pas de parent</td>
-				<td th:if="${categorie.parent != null}" th:text="${categorie.parent.nom}"></td>
+				<td scope="row" th:text="${categorie.id}"></td>
+				<td scope="row" th:text="${categorie.nom}"></td>
+				<td scope="row" th:if="${categorie.parent == null}" >Pas de parent</td>
+				<td scope="row" th:if="${categorie.parent != null}" th:text="${categorie.parent.nom}"></td>
 
 
 				<td><a class="btn btn-warning" th:href="@{editCategorie(id=${categorie.id})}"> Editer</a></td>
